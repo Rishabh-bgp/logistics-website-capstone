@@ -120,13 +120,13 @@ Every colour and shadow is a CSS custom property, so dark and light themes are j
 
 ## Lighthouse
 
-Measured with Lighthouse 12.8 (headless Chrome, default simulated throttling) on a plain local static server with no compression.
+Measured with Lighthouse 12.8 (headless Chrome, default simulated throttling) against the live GitHub Pages site.
 
-| Page | Desktop (Perf / A11y / BP / SEO) | Mobile (Perf / A11y / BP / SEO) |
-|---|---|---|
-| Home `index.html` | **100 / 100 / 100 / 100** | 90 / 100 / 100 / 100 |
-| Dashboard `dashboard.html` | **100 / 100 / 100 / 100** | 98 / 100 / 100 / 100 |
-| Design system `design-system.html` | **100 / 100 / 100 / 100** | 99 / 100 / 100 / 100 |
+| Page | Desktop (Perf / A11y / BP / SEO) | Desktop LCP | Mobile (Perf / A11y / BP / SEO) | Mobile LCP |
+|---|---|---|---|---|
+| Home `index.html` | **100 / 100 / 100 / 100** | 0.4 s | **100 / 100 / 100 / 100** | 1.3 s |
+| Dashboard `dashboard.html` | **100 / 100 / 100 / 100** | 0.4 s | **100 / 100 / 100 / 100** | 1.1 s |
+| Design system `design-system.html` | **100 / 100 / 100 / 100** | 0.3 s | **100 / 100 / 100 / 100** | 1.0 s |
 
 Cumulative layout shift is 0 and total blocking time is 0 ms on every page.
 
