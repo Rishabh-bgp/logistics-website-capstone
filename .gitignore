@@ -1,0 +1,20 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Node / tooling (not needed — no build step)
+node_modules/
+npm-debug.log*
+
+# Python cache (if you use a local server script)
+__pycache__/
+
+# Archives
+*.zip
+*.tgz

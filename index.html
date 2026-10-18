@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en-IN" class="no-js" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kargonaut Logistics | Road, air and ocean freight with live tracking</title>
+  <meta name="description" content="Kargonaut Logistics: instant freight quotes in rupees, live shipment tracking, pickup booking and a network of 38 hubs. A front-end capstone by Rishabh Aryan.">
+  <meta name="author" content="Rishabh Aryan">
+  <meta name="theme-color" content="#090c1b">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <script src="assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb547"/><stop offset=".5" stop-color="#ff7a3d"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+  </defs>
+  <symbol id="i-logo" viewBox="0 0 40 40"><rect x="2" y="2" width="36" height="36" rx="12" fill="url(#logoGrad)"/><path d="M11 27V13M11 20l9-7M14.5 17.5L22 27" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 15h6M26 20h5M24 25h4" stroke="#fff" stroke-width="2.6" stroke-linecap="round" opacity=".85"/></symbol>
+  <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6.5h11v9.5H2zM13 9.5h4.2l3.3 3.4V16H13z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="6" cy="17.5" r="1.9" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="17.5" r="1.9" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 15.5l-8-4.6V5a1.5 1.5 0 00-3 0v5.9L2 15.5v2l8-2.3V19l-2.3 1.6V22l3.8-1 3.8 1v-1.4L13 19v-3.8l8 2.3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-ship" viewBox="0 0 24 24"><path d="M3 15.5l1.8 4.5h14.4l1.8-4.5-9-3.2z M6 13.6V8h12v5.6 M9 8V5h6v3 M2 21.5c1.5 0 1.5-.8 3-.8s1.5.8 3 .8 1.5-.8 3-.8 1.5.8 3 .8 1.5-.8 3-.8 1.5.8 3 .8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-warehouse" viewBox="0 0 24 24"><path d="M2.5 9.5L12 4l9.5 5.5V20h-19z M6.5 20v-7h11v7 M6.5 16h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 2.8l8.2 4.4v9.6L12 21.2 3.8 16.8V7.2z M3.8 7.2L12 11.6l8.2-4.4 M12 11.6v9.6 M7.9 5l8.2 4.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2.5L4.5 13.5H11l-1 8 8.5-11H12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.8l7.5 3v5.6c0 4.6-3.1 8.4-7.5 9.8-4.4-1.4-7.5-5.2-7.5-9.8V5.8z M8.5 12l2.4 2.4 4.6-4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5.2l3.4 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s7-6.2 7-12a7 7 0 00-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><path d="M12 1.8v2.6M12 19.6v2.6M1.8 12h2.6M19.6 12h2.6M4.8 4.8l1.8 1.8M17.4 17.4l1.8 1.8M4.8 19.2l1.8-1.8M17.4 6.6l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.6A8.6 8.6 0 019.4 3.5a8.6 8.6 0 1011.1 11.1z" fill="currentColor"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l4.8 4.8L19.5 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path d="M7 4L3 8l4 4M3 8h14M17 12l4 4-4 4M21 16H7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.5l1.8 4.6-2.3 1.4a11 11 0 006.5 6.5l1.4-2.3 4.6 1.8V19a2 2 0 01-2 2A16.5 16.5 0 013 5.5a2 2 0 012-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.8" y="5" width="18.4" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3.5 20.5h17M6.5 17v-5M11 17V7M15.5 17v-7.5M20 17V4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="3.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="3.5" y="13.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="13.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2.8h8l4.5 4.5v13.9H6z M14 2.8v4.5h4.5 M9 12h6.5M9 16h6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4c-9 0-15 4-15 11 0 2 .7 3.6 1.6 5 C8 13.5 12 10.5 16 9c-3.6 2-6.6 5.2-8.4 10.4C9 20.3 10.5 21 12.5 21 18 21 20 15 20 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 20c.6-3.6 3.2-5.6 6.5-5.6s5.9 2 6.5 5.6M16 4.8a3.4 3.4 0 010 6.4M18 14.8c1.9.7 3.2 2.4 3.5 5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2.5v19M3.8 7.2l16.4 9.6M3.8 16.8l16.4-9.6M9.5 4l2.5 2 2.5-2M9.5 20l2.5-2 2.5 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="2.8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M6 9.5v5M18 9.5v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11L12 4l8.5 7M6 9.5V20h12V9.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12.5" height="12.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V5.5A2 2 0 0014 3.5H5.5a2 2 0 00-2 2V14a2 2 0 002 2H8" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 6.5h16M9.5 6.5V4h5v2.5M6.5 6.5l1 14h9l1-14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3.5v12M7 10.5l5 5 5-5M4 20.5h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sort" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z M3 12.5l9 5 9-5 M3 16.5l9 5 9-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  </g>
+</svg>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="mesh" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="grid-bg" aria-hidden="true"></div>
+<header class="site-header">
+  <div class="container">
+    <div class="bar glass">
+      <a class="brand" href="index.html" aria-label="Kargonaut Logistics, home">
+        <svg aria-hidden="true"><use href="#i-logo"></use></svg><span>Kargo<b>naut</b></span>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#track">Track</a></li>
+          <li><a href="#quote">Quote</a></li>
+          <li><a href="#book">Book</a></li>
+          <li><a href="#network">Network</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="design-system.html">Design system</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="switch" id="themeToggle" type="button" role="switch" aria-checked="true" aria-label="Dark mode">
+          <span class="knob"><svg aria-hidden="true"><use href="#i-moon"></use></svg></span>
+        </button>
+        <a class="btn btn-hot btn-clay btn-sm hide-sm" href="#book">Book pickup</a>
+        <button class="hamburger" id="menuButton" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs id="mapDefs">
+    <linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#34d399"/><stop offset=".5" stop-color="#22d3ee"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+    <linearGradient id="vehGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8a4c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+  </defs>
+</svg>
+<main id="main" tabindex="-1">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow"><svg width="16" height="16" aria-hidden="true"><use href="#i-bolt"></use></svg> 38 hubs · 22 countries · one tracking ID</span>
+        <h1 id="hero-title">Freight that moves at the <span class="grad-text">speed of now.</span></h1>
+        <p class="lead">Kargonaut connects trucks, cargo planes and container ships into one live network. Quote in seconds, book a pickup in a minute, and watch every parcel cross the map in real time.</p>
+        <div class="hero-cta">
+          <a class="btn btn-hot btn-clay" href="#quote">Get an instant quote <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+          <a class="btn btn-ghost" href="#services">Explore services</a>
+        </div>
+        <form class="quick-track neu" id="quickTrack" role="search" aria-label="Quick track">
+          <label class="icon-input"><span class="sr-only">Tracking ID</span><svg aria-hidden="true"><use href="#i-search"></use></svg><input type="text" class="input" id="quickTrackId" name="quickTrackId" placeholder="Track: KGN-48213-IN" autocomplete="off" spellcheck="false"></label>
+          <button class="btn btn-clay" type="submit">Track</button>
+        </form>
+        <div class="hero-trust">
+          <span><svg aria-hidden="true"><use href="#i-check"></use></svg>98.7% on-time</span>
+          <span><svg aria-hidden="true"><use href="#i-check"></use></svg>GST invoices built in</span>
+          <span><svg aria-hidden="true"><use href="#i-check"></use></svg>Pay on pickup</span>
+        </div>
+      </div>
+      <div class="globe-wrap">
+        <svg viewBox="-20 -20 540 540" role="img" aria-labelledby="globeTitle">
+<title id="globeTitle">Animated globe with parcels flying between Kargonaut hubs in Mumbai, Delhi, Dubai, Singapore, Shanghai, Rotterdam and Nairobi</title>
+<defs>
+<radialGradient id="globeFill" cx="38%" cy="32%" r="75%"><stop offset="0" class="gf-1"/><stop offset=".65" class="gf-2"/><stop offset="1" class="gf-3"/></radialGradient>
+<radialGradient id="globeGlow" cx="50%" cy="50%" r="50%"><stop offset=".72" stop-color="#8b5cf6" stop-opacity=".55"/><stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/></radialGradient>
+<linearGradient id="arcGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb547"/><stop offset="1" stop-color="#ff5fa2"/></linearGradient>
+<linearGradient id="pkgGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd38a"/><stop offset="1" stop-color="#ff7a3d"/></linearGradient>
+<linearGradient id="rimGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>
+</defs>
+<circle cx="250" cy="250" r="262" fill="url(#globeGlow)"/>
+<g class="globe-ring"><ellipse cx="250" cy="250" rx="246" ry="70" fill="none" stroke="#22d3ee" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="2 10" transform="rotate(-24 250 250)"/></g>
+<g class="globe-ring rev"><ellipse cx="250" cy="250" rx="236" ry="96" fill="none" stroke="#ffb547" stroke-opacity=".3" stroke-width="1.2" stroke-dasharray="1 8" transform="rotate(32 250 250)"/></g>
+<circle cx="250" cy="250" r="200" fill="url(#globeFill)"/>
+<path class="globe-dots-0" d="M373.9 391.1h0M379.3 389.1h0M404.1 375.7h0M406.9 373.3h0M383.6 383.1h0M388.6 381.0h0M393.3 378.8h0M405.1 372.0h0M408.3 369.6h0M411.1 367.2h0M413.5 364.7h0M388.6 376.4h0M393.5 374.3h0M398.1 372.1h0M402.3 369.9h0M406.2 367.6h0M409.7 365.2h0M412.8 362.8h0M415.6 360.4h0M417.9 357.9h0M399.0 366.9h0M403.5 364.7h0M407.5 362.5h0M411.2 360.2h0M414.6 357.8h0M417.6 355.4h0M420.2 352.9h0M422.5 350.4h0M405.1 358.9h0M409.3 356.7h0M413.1 354.4h0M416.6 352.1h0M419.8 349.7h0M422.6 347.2h0M425.0 344.7h0M427.0 342.2h0M407.3 352.5h0M411.6 350.3h0M415.5 348.0h0M419.1 345.6h0M422.3 343.2h0M425.1 340.8h0M427.6 338.3h0M429.8 335.8h0M414.4 343.2h0M418.3 340.9h0M421.9 338.5h0M425.1 336.2h0M428.0 333.7h0M430.5 331.3h0M432.6 328.8h0M434.4 326.2h0M417.8 335.4h0M421.7 333.1h0M425.1 330.8h0M428.3 328.4h0M431.1 325.9h0M433.5 323.5h0M435.6 321.0h0M421.8 327.1h0M425.4 324.7h0M428.8 322.4h0M434.4 317.5h0M436.7 315.0h0M426.1 318.0h0M429.6 315.7h0M437.9 308.3h0M440.7 293.0h0M442.8 290.5h0M444.5 288.0h0M437.4 289.3h0M440.1 286.8h0M442.4 284.3h0M436.8 282.4h0M439.6 280.0h0M54.9 240.6h0M56.7 243.1h0M58.8 245.6h0M61.3 248.1h0M55.1 231.1h0M56.7 233.6h0M58.6 236.1h0M60.8 238.6h0M55.9 221.9h0M57.3 224.4h0M59.0 227.0h0M61.1 229.5h0M57.2 213.1h0M58.5 215.6h0M60.1 218.1h0M62.1 220.7h0M64.4 223.2h0M59.1 204.6h0M60.3 207.2h0M61.8 209.7h0M63.7 212.2h0M65.9 214.7h0M61.4 196.5h0M62.5 199.1h0M64.0 201.6h0M65.9 204.1h0M64.2 188.8h0M65.3 191.4h0M66.8 193.9h0M68.6 196.4h0M67.4 181.5h0M68.5 184.1h0M70.0 186.6h0M71.9 189.1h0M72.2 177.2h0M73.8 179.7h0M76.4 170.7h0M78.1 173.2h0M366.4 95.3h0M359.5 91.1h0M359.3 88.5h0M350.9 92.1h0M352.0 89.5h0M352.4 86.9h0M352.1 84.3h0M351.2 81.7h0M161.7 71.8h0M344.8 85.2h0M345.1 82.6h0M344.7 80.1h0M343.6 77.5h0M171.6 66.9h0M168.2 69.3h0M165.6 71.7h0M162.3 79.4h0M162.8 82.0h0M336.5 83.5h0M337.5 80.9h0M337.6 78.4h0M337.0 75.8h0M335.6 73.2h0M333.4 70.7h0M178.1 64.8h0M174.8 67.2h0M172.4 69.7h0M329.2 79.3h0M330.0 76.7h0M329.9 74.1h0M328.9 71.5h0M327.1 69.0h0M324.4 66.6h0M303.8 57.7h0M188.6 60.9h0M184.6 63.1h0M181.5 65.5h0M179.3 68.0h0M178.0 70.6h0M321.9 75.1h0M322.3 72.5h0M321.8 69.9h0M320.3 67.4h0M195.0 59.6h0M191.1 61.9h0M188.2 64.3h0M186.4 66.8h0M185.6 69.4h0M313.4 73.5h0M201.3 58.7h0M197.6 61.0h0M195.1 63.5h0M193.7 66.0h0M248.8 50.5h0M240.5 50.8h0M232.4 51.5h0M224.9 52.7h0M212.4 56.0h0M207.7 58.2h0M204.3 60.5h0M202.2 63.1h0M201.6 65.6h0M247.5 51.3h0M239.2 51.7h0M231.4 52.6h0M218.6 55.9h0M214.1 58.1h0M211.1 60.5h0M209.8 63.1h0M224.8 56.2h0M220.5 58.4h0M218.3 60.9h0"/>
+<path class="globe-dots-1" d="M120.3 384.6h0M125.8 386.5h0M131.7 388.3h0M137.8 390.1h0M372.7 387.0h0M378.3 385.1h0M118.2 379.0h0M123.9 380.9h0M129.8 382.8h0M136.0 384.5h0M142.4 386.2h0M377.9 380.4h0M383.4 378.4h0M111.7 371.5h0M117.1 373.5h0M122.9 375.4h0M128.9 377.2h0M135.1 378.9h0M141.7 380.5h0M378.2 375.0h0M383.9 373.1h0M389.3 371.1h0M394.3 369.1h0M106.2 364.0h0M111.5 366.1h0M117.1 368.0h0M122.9 369.9h0M129.0 371.6h0M135.4 373.3h0M142.0 374.9h0M148.9 376.4h0M178.3 381.3h0M385.2 367.2h0M390.6 365.3h0M395.7 363.2h0M400.6 361.1h0M101.7 356.6h0M106.9 358.7h0M112.3 360.6h0M118.1 362.5h0M124.1 364.3h0M130.3 366.0h0M136.8 367.7h0M143.6 369.2h0M180.3 375.4h0M387.3 360.8h0M392.7 358.8h0M397.9 356.8h0M402.8 354.7h0M98.2 349.3h0M103.2 351.3h0M108.6 353.3h0M114.3 355.2h0M120.2 357.1h0M126.4 358.8h0M132.8 360.5h0M139.5 362.0h0M146.4 363.5h0M395.7 351.7h0M400.8 349.7h0M405.7 347.6h0M410.2 345.4h0M95.5 342.0h0M100.6 344.1h0M105.9 346.1h0M111.6 348.0h0M117.4 349.9h0M123.6 351.6h0M130.0 353.3h0M136.6 354.9h0M143.4 356.4h0M150.5 357.8h0M409.3 339.9h0M413.7 337.7h0M93.8 334.9h0M98.9 337.0h0M104.3 339.0h0M109.9 340.9h0M115.8 342.7h0M121.9 344.5h0M128.3 346.2h0M134.9 347.7h0M141.7 349.2h0M413.5 331.6h0M417.8 329.3h0M93.1 327.9h0M98.2 330.0h0M103.6 332.0h0M109.3 333.9h0M115.2 335.7h0M121.4 337.4h0M127.8 339.1h0M134.4 340.7h0M422.4 320.3h0M88.4 319.0h0M93.3 321.1h0M98.5 323.1h0M104.0 325.1h0M109.8 327.0h0M115.8 328.8h0M122.0 330.5h0M128.5 332.1h0M89.5 312.3h0M94.6 314.4h0M99.9 316.4h0M105.5 318.3h0M111.4 320.2h0M117.5 322.0h0M123.8 323.6h0M384.6 321.4h0M390.7 319.6h0M86.8 303.8h0M91.7 305.9h0M97.0 307.9h0M102.4 309.8h0M108.2 311.7h0M114.2 313.5h0M120.4 315.3h0M85.0 295.4h0M89.9 297.5h0M95.0 299.5h0M100.5 301.5h0M106.2 303.4h0M112.1 305.2h0M118.3 307.0h0M391.8 304.1h0M397.6 302.2h0M433.7 284.8h0M79.7 285.1h0M84.2 287.2h0M89.1 289.3h0M94.2 291.4h0M99.6 293.4h0M105.2 295.3h0M111.1 297.1h0M384.9 298.3h0M391.0 296.5h0M396.8 294.6h0M402.4 292.7h0M84.4 279.3h0M89.2 281.4h0M94.4 283.5h0M99.8 285.4h0M105.4 287.4h0M111.3 289.2h0M391.2 288.4h0M397.0 286.6h0M402.5 284.6h0M80.9 269.5h0M85.5 271.6h0M90.4 273.7h0M95.6 275.8h0M101.0 277.7h0M106.7 279.6h0M392.3 279.9h0M398.1 278.0h0M64.1 250.5h0M67.2 252.9h0M70.7 255.3h0M74.4 257.6h0M78.5 259.9h0M82.9 262.1h0M87.6 264.2h0M92.6 266.3h0M97.8 268.3h0M103.3 270.3h0M400.1 269.0h0M63.4 241.1h0M66.4 243.5h0M69.6 245.9h0M73.2 248.2h0M77.1 250.5h0M81.4 252.7h0M85.9 254.9h0M90.7 257.0h0M95.8 259.1h0M101.2 261.1h0M106.8 263.0h0M413.0 255.4h0M63.6 231.9h0M66.4 234.4h0M69.5 236.8h0M72.9 239.1h0M76.7 241.5h0M80.8 243.7h0M85.2 245.9h0M89.8 248.1h0M94.8 250.2h0M100.1 252.2h0M105.6 254.1h0M411.4 247.5h0M67.1 225.6h0M70.1 228.0h0M73.4 230.4h0M77.1 232.7h0M81.1 235.0h0M85.4 237.2h0M90.0 239.4h0M94.9 241.5h0M100.1 243.5h0M105.6 245.5h0M405.8 241.2h0M68.5 217.2h0M71.5 219.6h0M74.7 222.0h0M78.3 224.3h0M82.3 226.6h0M86.5 228.8h0M91.1 231.0h0M95.9 233.1h0M101.1 235.2h0M106.5 237.1h0M405.7 232.4h0M68.1 206.6h0M70.6 209.1h0M73.5 211.5h0M76.8 213.9h0M80.4 216.3h0M84.3 218.5h0M88.5 220.8h0M93.1 222.9h0M98.0 225.1h0M103.1 227.1h0M108.6 229.1h0M70.8 198.9h0M73.4 201.4h0M76.3 203.8h0M79.6 206.2h0M83.2 208.5h0M87.1 210.8h0M91.4 213.1h0M96.0 215.2h0M100.9 217.3h0M106.1 219.3h0M74.2 191.6h0M76.8 194.1h0M79.8 196.5h0M83.1 198.9h0M86.8 201.2h0M90.8 203.5h0M95.2 205.7h0M99.8 207.8h0M104.8 209.9h0M110.1 211.9h0M395.4 209.8h0M75.8 182.2h0M78.1 184.7h0M80.8 187.2h0M83.9 189.6h0M87.4 191.9h0M91.2 194.2h0M95.3 196.5h0M99.8 198.7h0M104.6 200.8h0M109.7 202.8h0M388.3 203.6h0M80.2 175.7h0M82.7 178.2h0M85.6 180.6h0M88.8 183.0h0M92.4 185.3h0M96.4 187.6h0M100.7 189.8h0M105.3 192.0h0M110.3 194.1h0M115.6 196.1h0M387.2 195.0h0M83.0 167.1h0M85.3 169.6h0M88.0 172.1h0M91.1 174.5h0M94.5 176.8h0M98.3 179.1h0M102.5 181.4h0M107.0 183.6h0M111.8 185.7h0M117.0 187.7h0M381.6 188.2h0M386.9 186.2h0M88.5 161.4h0M91.1 163.9h0M94.0 166.3h0M97.3 168.7h0M101.0 171.0h0M105.1 173.3h0M109.5 175.5h0M376.8 181.1h0M382.1 179.1h0M400.1 170.4h0M94.8 156.1h0M97.6 158.6h0M100.8 161.0h0M104.4 163.3h0M108.4 165.6h0M372.7 173.7h0M392.1 165.3h0M399.6 160.7h0M402.8 158.3h0M96.7 146.3h0M99.0 148.8h0M369.3 166.2h0M374.7 164.2h0M388.6 157.7h0M101.5 139.4h0M103.8 141.9h0M106.6 144.4h0M126.4 155.7h0M131.6 157.8h0M137.1 159.7h0M366.7 158.4h0M372.0 156.4h0M381.4 152.1h0M395.3 142.7h0M106.9 133.0h0M109.1 135.5h0M111.9 137.9h0M115.1 140.3h0M127.2 147.1h0M137.3 151.2h0M142.9 153.2h0M359.3 152.4h0M364.8 150.5h0M369.9 148.4h0M374.6 146.3h0M378.9 144.0h0M391.8 134.5h0M114.9 129.4h0M117.7 131.9h0M121.0 134.3h0M124.7 136.6h0M128.9 138.8h0M133.5 141.0h0M138.4 143.1h0M143.8 145.1h0M149.5 146.9h0M352.5 146.3h0M358.1 144.4h0M363.4 142.3h0M368.2 140.2h0M372.6 138.0h0M376.6 135.8h0M380.2 133.4h0M385.9 128.6h0M124.1 126.3h0M127.5 128.6h0M131.4 130.9h0M135.7 133.1h0M140.5 135.3h0M145.6 137.3h0M151.2 139.3h0M157.1 141.1h0M346.4 140.0h0M352.1 138.1h0M357.4 136.1h0M362.4 134.1h0M366.9 131.9h0M370.9 129.6h0M374.5 127.3h0M377.6 124.9h0M131.1 121.1h0M134.7 123.4h0M138.7 125.7h0M143.2 127.9h0M148.2 130.0h0M153.6 131.9h0M159.4 133.8h0M340.9 133.7h0M346.7 131.8h0M352.1 129.8h0M357.0 127.7h0M361.5 125.6h0M365.6 123.3h0M369.1 121.0h0M372.2 118.5h0M132.5 111.5h0M135.3 113.9h0M142.4 118.6h0M146.7 120.8h0M151.5 123.0h0M156.8 125.0h0M162.5 126.9h0M168.6 128.7h0M329.9 129.1h0M336.1 127.3h0M341.9 125.4h0M347.2 123.5h0M352.2 121.4h0M356.6 119.2h0M360.5 116.9h0M364.0 114.5h0M366.9 112.1h0M137.6 104.7h0M140.1 107.2h0M160.7 118.4h0M166.3 120.3h0M172.3 122.1h0M178.7 123.8h0M319.2 124.3h0M325.8 122.7h0M331.9 120.9h0M337.7 119.0h0M342.9 117.0h0M347.7 114.9h0M352.0 112.7h0M355.8 110.4h0M145.5 100.9h0M160.1 110.2h0M176.7 116.0h0M183.2 117.6h0M190.0 119.1h0M308.9 119.4h0M315.8 117.9h0M322.3 116.3h0M328.3 114.5h0M334.0 112.6h0M339.1 110.5h0M343.7 108.4h0M347.7 106.1h0M351.2 103.7h0M160.9 102.2h0M165.3 104.4h0M170.3 106.5h0M181.8 110.2h0M188.3 111.9h0M195.1 113.3h0M202.4 114.6h0M298.9 114.4h0M306.1 113.1h0M312.9 111.6h0M319.3 109.9h0M325.2 108.1h0M330.7 106.1h0M335.6 104.0h0M339.9 101.8h0M343.6 99.5h0M346.7 97.1h0M349.1 94.6h0M166.6 96.8h0M170.9 99.0h0M175.9 101.1h0M194.0 106.4h0M201.0 107.9h0M208.3 109.1h0M216.0 110.1h0M281.7 110.4h0M289.4 109.4h0M296.9 108.3h0M304.0 106.9h0M310.7 105.3h0M316.9 103.6h0M322.6 101.7h0M327.7 99.6h0M332.2 97.5h0M336.1 95.2h0M339.3 92.8h0M341.9 90.3h0M343.7 87.8h0M177.0 94.0h0M182.0 96.1h0M200.4 101.4h0M207.5 102.7h0M215.0 103.9h0M222.8 104.8h0M230.9 105.5h0M239.2 105.9h0M247.5 106.1h0M255.9 106.1h0M264.2 105.8h0M272.4 105.2h0M280.4 104.5h0M288.1 103.4h0M295.4 102.2h0M302.4 100.8h0M308.9 99.1h0M314.8 97.3h0M320.1 95.3h0M324.8 93.2h0M328.8 90.9h0M332.1 88.5h0M334.7 86.0h0M188.5 91.5h0M194.2 93.4h0M200.5 95.1h0M207.3 96.6h0M214.7 97.9h0M222.4 98.9h0M230.4 99.7h0M238.6 100.2h0M246.9 100.4h0M255.3 100.4h0M263.6 100.1h0M271.8 99.5h0M279.7 98.7h0M287.3 97.6h0M294.5 96.3h0M301.2 94.7h0M307.3 93.0h0M312.9 91.0h0M317.7 88.9h0M321.8 86.6h0M325.1 84.3h0M327.6 81.8h0M195.5 87.4h0M201.4 89.2h0M207.9 90.8h0M246.9 95.0h0M255.3 95.0h0M263.6 94.6h0M271.7 94.0h0M279.5 93.1h0M287.0 91.9h0M293.9 90.4h0M300.3 88.7h0M305.9 86.8h0M310.9 84.7h0M315.0 82.5h0M318.2 80.1h0M320.5 77.6h0M247.5 89.8h0M255.8 89.8h0M264.1 89.4h0M272.2 88.6h0M279.8 87.6h0M287.0 86.3h0M293.5 84.6h0M299.3 82.8h0M304.3 80.7h0M308.3 78.4h0M311.4 76.0h0M265.1 84.3h0M273.0 83.5h0M280.3 82.2h0M287.1 80.7h0M274.0 78.4h0"/>
+<path class="globe-dots-2" d="M175.8 368.4h0M183.6 369.4h0M172.7 361.4h0M180.5 362.4h0M188.3 363.3h0M148.8 350.7h0M156.0 352.0h0M178.7 355.3h0M186.5 356.2h0M141.3 342.2h0M148.3 343.6h0M155.6 344.9h0M186.1 349.1h0M135.2 333.7h0M142.1 335.2h0M149.2 336.5h0M156.5 337.8h0M130.4 325.3h0M137.2 326.8h0M144.2 328.2h0M151.3 329.5h0M126.9 316.9h0M133.6 318.5h0M140.5 319.9h0M147.6 321.3h0M124.7 308.7h0M131.3 310.2h0M138.1 311.7h0M145.2 313.1h0M152.4 314.5h0M359.5 312.2h0M366.4 310.8h0M117.3 298.9h0M123.7 300.6h0M130.3 302.2h0M137.1 303.7h0M144.1 305.1h0M151.3 306.4h0M158.7 307.6h0M358.4 304.6h0M117.5 290.9h0M123.9 292.6h0M130.5 294.2h0M137.3 295.7h0M144.3 297.1h0M151.5 298.5h0M158.9 299.7h0M166.4 300.8h0M351.5 297.9h0M385.1 290.2h0M112.7 281.5h0M118.9 283.2h0M125.3 284.9h0M131.9 286.4h0M138.8 287.9h0M145.8 289.3h0M153.1 290.6h0M160.5 291.8h0M168.0 292.9h0M175.7 294.0h0M345.7 290.8h0M360.1 288.2h0M109.1 272.1h0M115.2 273.9h0M121.4 275.6h0M127.9 277.3h0M134.7 278.8h0M141.6 280.3h0M148.7 281.6h0M156.0 282.9h0M163.4 284.1h0M171.1 285.2h0M178.8 286.1h0M294.1 288.7h0M355.8 280.8h0M112.7 264.8h0M118.9 266.6h0M125.2 268.3h0M131.8 269.9h0M138.7 271.4h0M145.7 272.8h0M152.9 274.1h0M160.3 275.3h0M167.8 276.4h0M175.5 277.5h0M183.3 278.4h0M282.4 281.2h0M290.6 280.7h0M352.6 273.1h0M111.4 256.0h0M117.5 257.8h0M123.8 259.5h0M130.3 261.1h0M137.1 262.6h0M144.0 264.1h0M151.2 265.4h0M158.5 266.7h0M166.0 267.8h0M280.3 273.0h0M288.6 272.5h0M350.8 265.1h0M364.8 262.2h0M371.5 260.7h0M111.3 247.4h0M117.3 249.2h0M123.5 250.9h0M130.0 252.5h0M136.7 254.1h0M143.6 255.6h0M150.7 256.9h0M158.0 258.2h0M173.1 260.4h0M279.7 264.6h0M288.0 264.2h0M350.2 256.8h0M357.3 255.4h0M364.2 253.9h0M370.8 252.3h0M112.3 239.0h0M118.2 240.8h0M124.4 242.6h0M130.9 244.2h0M137.6 245.8h0M144.5 247.2h0M151.6 248.6h0M166.3 251.1h0M174.0 252.1h0M181.7 253.1h0M189.6 254.0h0M272.3 256.6h0M280.6 256.2h0M288.9 255.8h0M350.8 248.2h0M357.9 246.7h0M364.7 245.2h0M114.3 231.0h0M120.3 232.8h0M126.5 234.5h0M133.0 236.1h0M139.7 237.7h0M146.6 239.1h0M153.7 240.5h0M168.5 242.9h0M176.2 244.0h0M184.0 244.9h0M191.9 245.8h0M199.9 246.5h0M208.0 247.2h0M266.3 248.4h0M274.6 248.1h0M282.9 247.7h0M291.1 247.2h0M299.3 246.6h0M338.2 241.9h0M345.5 240.6h0M352.7 239.3h0M359.6 237.8h0M366.3 236.3h0M111.6 221.3h0M117.4 223.2h0M123.4 225.0h0M129.7 226.7h0M136.2 228.3h0M143.0 229.8h0M150.0 231.3h0M164.5 233.8h0M172.0 235.0h0M179.7 236.0h0M187.6 236.9h0M195.5 237.7h0M203.6 238.4h0M211.7 239.0h0M270.1 239.9h0M278.4 239.6h0M286.6 239.1h0M294.8 238.5h0M302.9 237.9h0M334.0 234.1h0M341.4 232.9h0M348.6 231.5h0M355.6 230.1h0M362.4 228.6h0M369.0 227.0h0M115.7 213.9h0M121.5 215.7h0M127.7 217.5h0M134.0 219.1h0M140.7 220.7h0M147.5 222.2h0M161.8 224.9h0M169.3 226.1h0M176.9 227.2h0M184.6 228.2h0M192.5 229.0h0M200.5 229.8h0M208.7 230.4h0M258.6 231.8h0M266.9 231.6h0M275.2 231.3h0M283.5 230.9h0M291.7 230.4h0M299.8 229.7h0M307.8 229.0h0M315.7 228.1h0M323.5 227.1h0M331.1 226.0h0M338.5 224.9h0M345.8 223.6h0M352.8 222.2h0M359.6 220.7h0M366.2 219.1h0M372.6 217.4h0M378.7 215.6h0M384.6 213.8h0M115.1 204.8h0M120.8 206.7h0M126.8 208.5h0M133.0 210.2h0M139.5 211.9h0M146.3 213.4h0M160.4 216.2h0M167.8 217.4h0M175.3 218.5h0M183.0 219.6h0M190.9 220.5h0M223.4 222.9h0M231.7 223.3h0M240.0 223.5h0M248.4 223.5h0M256.8 223.5h0M265.2 223.4h0M273.5 223.1h0M281.8 222.7h0M290.0 222.2h0M298.1 221.5h0M306.1 220.8h0M314.0 219.9h0M321.8 218.9h0M329.4 217.9h0M336.8 216.7h0M344.1 215.4h0M351.1 214.0h0M357.9 212.5h0M364.5 210.9h0M370.9 209.2h0M377.0 207.4h0M382.8 205.5h0M121.2 198.0h0M127.0 199.9h0M133.2 201.6h0M139.6 203.3h0M146.2 204.9h0M160.3 207.7h0M167.6 209.0h0M175.1 210.1h0M182.7 211.2h0M190.5 212.1h0M206.6 213.6h0M214.7 214.2h0M223.0 214.6h0M231.3 215.0h0M239.6 215.2h0M248.0 215.3h0M256.4 215.2h0M264.7 215.1h0M273.1 214.8h0M281.4 214.4h0M289.6 213.9h0M297.7 213.2h0M305.7 212.5h0M313.6 211.6h0M321.3 210.6h0M328.9 209.5h0M336.3 208.3h0M343.5 207.0h0M350.5 205.6h0M357.3 204.0h0M363.8 202.4h0M370.1 200.7h0M376.1 198.9h0M381.8 197.0h0M122.5 189.7h0M128.3 191.5h0M134.4 193.3h0M140.7 195.0h0M154.2 198.1h0M161.3 199.5h0M168.5 200.7h0M176.0 201.9h0M183.7 203.0h0M191.5 203.9h0M199.4 204.7h0M207.5 205.4h0M215.7 206.0h0M223.9 206.4h0M232.2 206.8h0M240.6 207.0h0M248.9 207.1h0M257.3 207.0h0M265.7 206.8h0M274.0 206.5h0M282.3 206.1h0M290.4 205.6h0M298.5 204.9h0M306.5 204.1h0M314.4 203.2h0M322.1 202.2h0M329.6 201.0h0M336.9 199.8h0M344.1 198.4h0M351.0 197.0h0M357.6 195.4h0M364.0 193.7h0M370.2 192.0h0M376.1 190.1h0M163.4 191.5h0M170.7 192.8h0M178.2 193.9h0M185.8 195.0h0M193.7 195.9h0M201.6 196.7h0M209.7 197.4h0M217.9 198.0h0M226.1 198.4h0M234.5 198.7h0M242.8 198.9h0M251.2 198.9h0M259.6 198.8h0M267.9 198.6h0M276.2 198.3h0M284.4 197.8h0M292.6 197.2h0M300.7 196.5h0M308.6 195.7h0M316.3 194.7h0M324.0 193.6h0M331.4 192.4h0M338.6 191.1h0M345.6 189.7h0M352.4 188.2h0M358.9 186.5h0M365.2 184.8h0M371.1 183.0h0M166.7 183.8h0M174.0 185.1h0M181.5 186.2h0M189.2 187.2h0M197.0 188.1h0M205.0 188.9h0M213.1 189.6h0M221.3 190.1h0M229.6 190.5h0M238.0 190.7h0M246.3 190.8h0M254.7 190.8h0M263.1 190.7h0M271.4 190.4h0M279.7 190.0h0M287.9 189.5h0M296.0 188.8h0M303.9 188.0h0M311.8 187.1h0M319.4 186.1h0M326.9 184.9h0M334.2 183.6h0M341.3 182.2h0M348.1 180.7h0M354.7 179.1h0M361.0 177.4h0M367.0 175.6h0M150.3 172.0h0M157.0 173.6h0M163.9 175.0h0M171.0 176.4h0M178.4 177.6h0M186.0 178.7h0M193.7 179.7h0M201.6 180.6h0M209.7 181.3h0M217.8 181.9h0M226.0 182.3h0M234.4 182.7h0M242.7 182.9h0M251.1 182.9h0M259.5 182.8h0M267.8 182.6h0M276.1 182.2h0M284.3 181.7h0M292.5 181.1h0M300.5 180.4h0M308.3 179.5h0M316.0 178.5h0M323.6 177.3h0M330.9 176.1h0M338.0 174.7h0M344.8 173.2h0M351.4 171.6h0M357.7 169.9h0M363.7 168.1h0M149.0 163.3h0M155.5 165.0h0M162.2 166.5h0M169.2 168.0h0M176.4 169.3h0M183.9 170.4h0M191.6 171.5h0M199.4 172.4h0M207.4 173.2h0M215.5 173.9h0M223.7 174.4h0M232.0 174.7h0M240.3 175.0h0M248.7 175.1h0M257.1 175.0h0M265.4 174.8h0M273.7 174.5h0M282.0 174.0h0M290.1 173.4h0M298.1 172.7h0M306.0 171.8h0M313.7 170.8h0M321.2 169.7h0M328.5 168.4h0M335.6 167.0h0M342.4 165.5h0M349.0 163.9h0M355.2 162.2h0M361.1 160.3h0M148.8 155.0h0M155.1 156.7h0M161.6 158.3h0M168.5 159.8h0M175.6 161.2h0M183.0 162.4h0M190.5 163.5h0M198.3 164.5h0M206.2 165.3h0M214.3 166.0h0M222.5 166.6h0M230.7 167.0h0M239.1 167.3h0M247.4 167.4h0M255.8 167.3h0M264.2 167.2h0M272.5 166.8h0M280.7 166.4h0M288.9 165.8h0M296.9 165.0h0M304.7 164.1h0M312.4 163.1h0M319.9 161.9h0M327.2 160.7h0M334.2 159.2h0M340.9 157.7h0M347.4 156.1h0M353.5 154.3h0M155.6 148.7h0M162.1 150.4h0M168.8 151.9h0M175.8 153.3h0M183.1 154.6h0M190.5 155.8h0M198.3 156.8h0M206.1 157.7h0M214.2 158.4h0M222.3 159.0h0M230.6 159.4h0M238.9 159.7h0M247.3 159.8h0M255.7 159.8h0M264.0 159.6h0M272.3 159.3h0M280.6 158.8h0M288.7 158.2h0M296.7 157.4h0M304.5 156.5h0M312.1 155.4h0M319.6 154.2h0M326.7 152.9h0M333.6 151.4h0M340.3 149.8h0M346.6 148.1h0M163.4 142.8h0M170.0 144.4h0M176.9 145.8h0M184.1 147.2h0M191.6 148.3h0M199.2 149.4h0M207.1 150.3h0M215.1 151.0h0M223.3 151.6h0M231.6 152.0h0M239.9 152.3h0M248.2 152.4h0M256.6 152.4h0M265.0 152.2h0M273.3 151.8h0M281.5 151.3h0M289.6 150.6h0M297.5 149.8h0M305.2 148.8h0M312.8 147.7h0M320.1 146.4h0M327.1 145.0h0M333.9 143.5h0M340.3 141.8h0M165.6 135.5h0M172.1 137.2h0M179.0 138.7h0M186.1 140.0h0M193.5 141.2h0M201.2 142.3h0M209.1 143.2h0M217.1 143.9h0M225.3 144.5h0M233.5 144.9h0M241.9 145.1h0M250.2 145.2h0M258.6 145.1h0M266.9 144.9h0M275.2 144.4h0M283.4 143.9h0M291.4 143.1h0M299.2 142.2h0M306.9 141.1h0M314.3 139.9h0M321.4 138.6h0M328.2 137.1h0M334.8 135.5h0M175.1 130.3h0M181.9 131.8h0M189.0 133.2h0M196.4 134.4h0M204.1 135.4h0M211.9 136.3h0M220.0 137.0h0M228.2 137.6h0M236.5 137.9h0M244.8 138.1h0M253.2 138.1h0M261.6 138.0h0M269.9 137.7h0M278.1 137.2h0M286.2 136.5h0M294.1 135.6h0M301.8 134.6h0M309.3 133.5h0M316.5 132.1h0M323.4 130.7h0M185.6 125.3h0M192.7 126.7h0M200.1 127.8h0M207.8 128.9h0M215.7 129.7h0M223.8 130.4h0M232.0 130.9h0M240.4 131.2h0M248.7 131.3h0M257.1 131.2h0M265.4 131.0h0M273.7 130.6h0M281.8 129.9h0M289.8 129.1h0M297.6 128.2h0M305.1 127.0h0M312.3 125.7h0M197.2 120.5h0M204.6 121.6h0M212.4 122.6h0M220.4 123.4h0M228.5 124.0h0M236.8 124.4h0M245.1 124.6h0M253.5 124.7h0M261.9 124.5h0M270.1 124.1h0M278.3 123.5h0M286.3 122.8h0M294.1 121.8h0M301.6 120.7h0M210.0 115.7h0M217.8 116.7h0M225.8 117.4h0M234.1 117.9h0M242.4 118.2h0M250.7 118.3h0M259.1 118.1h0M267.4 117.8h0M275.6 117.3h0M283.6 116.5h0M291.4 115.6h0M224.0 111.0h0M232.1 111.6h0M240.4 111.9h0M248.8 112.1h0M257.1 112.0h0M265.4 111.7h0M273.6 111.2h0"/>
+<circle cx="250" cy="250" r="199" fill="none" stroke="url(#rimGrad)" stroke-width="2"/>
+<path id="arc-MUM-DXB" class="globe-arc" d="M266.1 246.0 L264.8 245.4 L263.5 244.8 L262.1 244.2 L260.8 243.5 L259.4 242.9 L258.0 242.3 L256.6 241.6 L255.1 241.0 L253.6 240.3 L252.2 239.6 L250.7 239.0 L249.2 238.3 L247.6 237.7 L246.1 237.0 L244.6 236.4 L243.0 235.7 L241.5 235.1 L239.9 234.4 L238.4 233.8 L236.8 233.2 L235.3 232.6 L233.8 232.0 L232.3 231.4 L230.8 230.8 L229.3 230.2 L227.8 229.7 L226.4 229.1 L225.0 228.6 L223.6 228.1 L222.2 227.6 L220.9 227.2 L219.6 226.7 L218.3 226.3 L217.1 225.8 L215.8 225.4 L214.6 225.0 L213.5 224.6 L212.3 224.3 L211.2 223.9 L210.1 223.6" style="animation-delay:-0.0s"/>
+<path id="arc-DXB-RTM" class="globe-arc" d="M210.1 223.6 L207.1 219.8 L204.0 216.0 L200.8 212.2 L197.6 208.2 L194.4 204.1 L191.2 200.0 L187.9 195.9 L184.7 191.7 L181.4 187.5 L178.2 183.3 L175.0 179.1 L171.9 174.9 L168.9 170.8 L165.9 166.7 L163.0 162.7 L160.2 158.8 L157.5 155.0 L154.9 151.3 L152.5 147.7 L150.2 144.3 L148.1 141.1 L146.1 138.0 L144.3 135.1 L142.7 132.4 L141.2 129.9 L139.9 127.6 L138.8 125.5 L137.9 123.7 L137.2 122.0 L136.6 120.6 L136.2 119.4 L136.0 118.4 L136.0 117.6 L136.1 117.0 L136.4 116.7 L136.8 116.5 L137.3 116.4 L138.0 116.6 L138.7 116.9 L139.6 117.3" style="animation-delay:-0.4s"/>
+<path id="arc-MUM-SIN" class="globe-arc" d="M266.1 246.0 L269.1 247.3 L272.2 248.6 L275.4 249.9 L278.7 251.3 L282.0 252.7 L285.4 254.2 L288.8 255.6 L292.3 257.2 L295.7 258.7 L299.2 260.2 L302.8 261.8 L306.3 263.4 L309.8 265.0 L313.2 266.6 L316.7 268.2 L320.1 269.8 L323.4 271.3 L326.7 272.9 L329.9 274.4 L333.0 276.0 L336.0 277.4 L338.9 278.9 L341.6 280.3 L344.3 281.6 L346.8 283.0 L349.1 284.2 L351.4 285.4 L353.4 286.6 L355.4 287.7 L357.1 288.7 L358.7 289.6 L360.2 290.5 L361.5 291.4 L362.7 292.2 L363.7 292.9 L364.6 293.5 L365.4 294.1 L366.0 294.7 L366.6 295.2 L367.0 295.6" style="animation-delay:-0.8s"/>
+<path id="arc-SIN-SHA" class="globe-arc" d="M367.0 295.6 L369.8 293.4 L372.6 291.2 L375.3 288.8 L378.0 286.4 L380.7 283.8 L383.3 281.2 L385.8 278.4 L388.3 275.6 L390.7 272.6 L392.9 269.6 L395.1 266.5 L397.1 263.4 L399.0 260.2 L400.7 256.9 L402.3 253.6 L403.7 250.2 L404.9 246.8 L406.0 243.4 L406.9 240.0 L407.6 236.7 L408.1 233.3 L408.5 229.9 L408.6 226.6 L408.6 223.3 L408.3 220.1 L407.9 217.0 L407.3 213.9 L406.6 210.9 L405.7 208.0 L404.6 205.2 L403.4 202.5 L402.0 199.9 L400.5 197.4 L398.9 195.0 L397.2 192.7 L395.4 190.5 L393.5 188.4 L391.5 186.5 L389.5 184.6 L387.4 182.8" style="animation-delay:-1.2s"/>
+<path id="arc-DEL-FRA" class="globe-arc" d="M278.1 212.5 L274.8 208.7 L271.4 204.9 L267.8 201.0 L264.1 197.1 L260.2 193.1 L256.2 189.1 L252.1 185.0 L247.9 181.0 L243.6 177.0 L239.2 172.9 L234.7 169.0 L230.1 165.1 L225.5 161.2 L220.9 157.5 L216.2 153.8 L211.6 150.3 L207.0 146.9 L202.4 143.7 L197.9 140.6 L193.5 137.7 L189.1 135.0 L184.9 132.5 L180.8 130.2 L176.8 128.2 L173.1 126.3 L169.4 124.7 L166.0 123.3 L162.7 122.1 L159.7 121.2 L156.8 120.5 L154.2 120.0 L151.7 119.7 L149.5 119.7 L147.5 119.8 L145.7 120.2 L144.2 120.7 L142.8 121.4 L141.6 122.2 L140.5 123.2 L139.7 124.3" style="animation-delay:-1.6s"/>
+<path id="arc-BLR-NBO" class="globe-arc" d="M282.5 266.7 L279.5 268.2 L276.3 269.8 L273.0 271.4 L269.6 273.0 L266.1 274.7 L262.4 276.4 L258.6 278.1 L254.8 279.8 L250.7 281.5 L246.6 283.1 L242.5 284.8 L238.2 286.5 L233.9 288.1 L229.6 289.7 L225.2 291.3 L220.8 292.8 L216.4 294.3 L212.0 295.7 L207.7 297.1 L203.4 298.4 L199.2 299.6 L195.1 300.8 L191.1 301.8 L187.2 302.8 L183.4 303.7 L179.7 304.6 L176.2 305.3 L172.9 305.9 L169.7 306.5 L166.7 306.9 L163.9 307.3 L161.2 307.6 L158.7 307.8 L156.5 307.9 L154.4 307.9 L152.5 307.9 L150.7 307.8 L149.2 307.6 L147.7 307.4 L146.5 307.1" style="animation-delay:-2.0s"/>
+<path id="arc-CCU-SHA" class="globe-arc" d="M314.3 230.5 L317.3 228.9 L320.3 227.3 L323.4 225.6 L326.5 224.0 L329.6 222.3 L332.7 220.6 L335.8 218.9 L338.9 217.2 L342.0 215.4 L345.1 213.7 L348.1 212.0 L351.1 210.3 L354.0 208.6 L356.8 206.9 L359.5 205.3 L362.2 203.7 L364.8 202.1 L367.2 200.6 L369.6 199.1 L371.8 197.7 L373.9 196.3 L375.8 195.0 L377.6 193.7 L379.3 192.5 L380.9 191.4 L382.2 190.4 L383.5 189.4 L384.6 188.5 L385.5 187.6 L386.3 186.9 L386.9 186.2 L387.5 185.6 L387.8 185.0 L388.1 184.5 L388.2 184.1 L388.3 183.7 L388.2 183.4 L388.0 183.2 L387.8 183.0 L387.4 182.8" style="animation-delay:-2.4s"/>
+<path id="arc-MUM-DEL" class="globe-arc" d="M266.1 246.0 L266.5 245.2 L266.8 244.3 L267.2 243.4 L267.6 242.5 L268.0 241.6 L268.4 240.7 L268.8 239.8 L269.1 238.9 L269.5 238.0 L269.9 237.1 L270.3 236.2 L270.6 235.3 L271.0 234.3 L271.4 233.4 L271.7 232.5 L272.1 231.6 L272.4 230.7 L272.8 229.8 L273.1 228.9 L273.4 228.0 L273.7 227.1 L274.0 226.3 L274.3 225.4 L274.6 224.5 L274.9 223.7 L275.2 222.9 L275.4 222.0 L275.7 221.2 L275.9 220.4 L276.2 219.6 L276.4 218.9 L276.6 218.1 L276.8 217.4 L277.0 216.6 L277.2 215.9 L277.4 215.2 L277.6 214.5 L277.8 213.8 L277.9 213.1 L278.1 212.5" style="animation-delay:-2.8s"/>
+<g class="globe-pkg"><rect x="-5" y="-5" width="10" height="10" rx="2.5"/><animateMotion dur="3.2s" begin="-0.0s" repeatCount="indefinite" rotate="auto"><mpath href="#arc-MUM-DXB"/></animateMotion></g>
+<g class="globe-pkg"><rect x="-5" y="-5" width="10" height="10" rx="2.5"/><animateMotion dur="3.9s" begin="-0.9s" repeatCount="indefinite" rotate="auto"><mpath href="#arc-DXB-RTM"/></animateMotion></g>
+<g class="globe-pkg"><rect x="-5" y="-5" width="10" height="10" rx="2.5"/><animateMotion dur="4.6s" begin="-1.8s" repeatCount="indefinite" rotate="auto"><mpath href="#arc-MUM-SIN"/></animateMotion></g>
+<g class="globe-pkg"><rect x="-5" y="-5" width="10" height="10" rx="2.5"/><animateMotion dur="5.3s" begin="-2.7s" repeatCount="indefinite" rotate="auto"><mpath href="#arc-SIN-SHA"/></animateMotion></g>
+<g class="globe-pkg"><rect x="-5" y="-5" width="10" height="10" rx="2.5"/><animateMotion dur="3.2s" begin="-3.6s" repeatCount="indefinite" rotate="auto"><mpath href="#arc-DEL-FRA"/></animateMotion></g>
+<g class="globe-pkg"><rect x="-5" y="-5" width="10" height="10" rx="2.5"/><animateMotion dur="3.9s" begin="-4.5s" repeatCount="indefinite" rotate="auto"><mpath href="#arc-BLR-NBO"/></animateMotion></g>
+<g class="globe-pkg"><rect x="-5" y="-5" width="10" height="10" rx="2.5"/><animateMotion dur="4.6s" begin="-5.4s" repeatCount="indefinite" rotate="auto"><mpath href="#arc-CCU-SHA"/></animateMotion></g>
+<g class="globe-pkg"><rect x="-5" y="-5" width="10" height="10" rx="2.5"/><animateMotion dur="5.3s" begin="-6.3s" repeatCount="indefinite" rotate="auto"><mpath href="#arc-MUM-DEL"/></animateMotion></g>
+<circle class="globe-pulse" cx="266.1" cy="246.0" r="5" style="animation-delay:-0.0s"/><circle class="globe-city" cx="266.1" cy="246.0" r="4"/>
+<circle class="globe-pulse" cx="278.1" cy="212.5" r="5" style="animation-delay:-0.3s"/><circle class="globe-city" cx="278.1" cy="212.5" r="4"/>
+<circle class="globe-pulse" cx="210.1" cy="223.6" r="5" style="animation-delay:-0.6s"/><circle class="globe-city" cx="210.1" cy="223.6" r="4"/>
+<circle class="globe-pulse" cx="367.0" cy="295.6" r="5" style="animation-delay:-0.9s"/><circle class="globe-city" cx="367.0" cy="295.6" r="4"/>
+<circle class="globe-pulse" cx="387.4" cy="182.8" r="5" style="animation-delay:-1.2s"/><circle class="globe-city" cx="387.4" cy="182.8" r="4"/>
+<circle class="globe-pulse" cx="139.6" cy="117.3" r="5" style="animation-delay:-1.5s"/><circle class="globe-city" cx="139.6" cy="117.3" r="4"/>
+<circle class="globe-pulse" cx="146.5" cy="307.1" r="5" style="animation-delay:-1.8s"/><circle class="globe-city" cx="146.5" cy="307.1" r="4"/>
+<circle class="globe-pulse" cx="282.5" cy="266.7" r="5" style="animation-delay:-2.1s"/><circle class="globe-city" cx="282.5" cy="266.7" r="4"/>
+<circle class="globe-pulse" cx="314.3" cy="230.5" r="5" style="animation-delay:-2.4s"/><circle class="globe-city" cx="314.3" cy="230.5" r="4"/>
+<circle class="globe-pulse" cx="139.7" cy="124.3" r="5" style="animation-delay:-2.7s"/><circle class="globe-city" cx="139.7" cy="124.3" r="4"/>
+</svg>
+        <div class="float-card fc-1 glass" aria-hidden="true"><span class="ic"><svg><use href="#i-plane"></use></svg></span><span><strong>KG 214 landed</strong>Dubai → Bengaluru · 6.5 kg</span></div>
+        <div class="float-card fc-2 glass" aria-hidden="true"><span class="ic"><svg><use href="#i-check"></use></svg></span><span><strong>Delivered 2h early</strong>Mumbai → Delhi · Express</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <ul>
+      <li><svg><use href="#i-truck"></use></svg>Live GPS on every truck</li><li><svg><use href="#i-doc"></use></svg>Customs brokerage</li><li><svg><use href="#i-leaf"></use></svg>EV last mile in 14 cities</li><li><svg><use href="#i-snow"></use></svg>Cold chain 2–8 °C</li><li><svg><use href="#i-cash"></use></svg>COD &amp; easy returns</li><li><svg><use href="#i-shield"></use></svg>Cargo insurance</li><li><svg><use href="#i-warehouse"></use></svg>2.1M sq ft fulfilment</li>
+      <li><svg><use href="#i-truck"></use></svg>Live GPS on every truck</li><li><svg><use href="#i-doc"></use></svg>Customs brokerage</li><li><svg><use href="#i-leaf"></use></svg>EV last mile in 14 cities</li><li><svg><use href="#i-snow"></use></svg>Cold chain 2–8 °C</li><li><svg><use href="#i-cash"></use></svg>COD &amp; easy returns</li><li><svg><use href="#i-shield"></use></svg>Cargo insurance</li><li><svg><use href="#i-warehouse"></use></svg>2.1M sq ft fulfilment</li>
+    </ul>
+  </div>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Services</span>
+        <h2 id="services-title">Every mode. One control room.</h2>
+        <p class="lead">From a single envelope to a 40-foot container, pick the lane that fits your deadline and budget.</p>
+      </div>
+      <div class="filters reveal" id="serviceFilters" role="group" aria-label="Filter services by mode">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true"><svg aria-hidden="true"><use href="#i-grid"></use></svg>All</button>
+        <button class="chip" type="button" data-filter="road" aria-pressed="false"><svg aria-hidden="true"><use href="#i-truck"></use></svg>Road</button>
+        <button class="chip" type="button" data-filter="air" aria-pressed="false"><svg aria-hidden="true"><use href="#i-plane"></use></svg>Air</button>
+        <button class="chip" type="button" data-filter="sea" aria-pressed="false"><svg aria-hidden="true"><use href="#i-ship"></use></svg>Sea</button>
+        <button class="chip" type="button" data-filter="warehouse" aria-pressed="false"><svg aria-hidden="true"><use href="#i-warehouse"></use></svg>Warehousing</button>
+      </div>
+      <p class="sr-only" id="serviceCount" aria-live="polite">Showing 8 services</p>
+      <ul class="card-grid" id="serviceGrid">
+        <li class="service-card clay lift reveal" data-mode="road"><span class="blob" style="--c1:#8b5cf6;--c2:#22d3ee"><svg aria-hidden="true"><use href="#i-truck"></use></svg></span><h3>Express Road Freight</h3><p>Full and part truckloads across 600+ corridors with live GPS, e-way bills and proof of delivery on your phone.</p><div class="tags"><span class="tag">FTL</span><span class="tag">LTL</span><span class="tag">GPS</span></div><div class="meta"><span>from</span><strong>₹149</strong></div></li>
+        <li class="service-card clay lift reveal" data-mode="road" style="--rd:.05s"><span class="blob" style="--c1:#f472b6;--c2:#ff8a4c"><svg aria-hidden="true"><use href="#i-bolt"></use></svg></span><h3>Same-Day Metro</h3><p>Bikes and electric vans collect within 60 minutes and deliver by 9 PM in 14 cities. Perfect for D2C brands.</p><div class="tags"><span class="tag">EV fleet</span><span class="tag">60-min pickup</span></div><div class="meta"><span>from</span><strong>₹99</strong></div></li>
+        <li class="service-card clay lift reveal" data-mode="air" style="--rd:.1s"><span class="blob" style="--c1:#22d3ee;--c2:#6366f1"><svg aria-hidden="true"><use href="#i-plane"></use></svg></span><h3>Air Cargo Priority</h3><p>Reserved belly and freighter space on 40+ domestic lanes, with next-flight-out options for urgent spares.</p><div class="tags"><span class="tag">Next flight</span><span class="tag">DG certified</span></div><div class="meta"><span>from</span><strong>₹499</strong></div></li>
+        <li class="service-card clay lift reveal" data-mode="air" style="--rd:.15s"><span class="blob" style="--c1:#6366f1;--c2:#f472b6"><svg aria-hidden="true"><use href="#i-globe"></use></svg></span><h3>Global Air Express</h3><p>Door-to-door documents and parcels to 22 countries in 2–4 days. Duties can be prepaid so receivers pay nothing.</p><div class="tags"><span class="tag">DDP</span><span class="tag">Customs</span></div><div class="meta"><span>from</span><strong>₹1,299</strong></div></li>
+        <li class="service-card clay lift reveal" data-mode="sea"><span class="blob" style="--c1:#0ea5e9;--c2:#34d399"><svg aria-hidden="true"><use href="#i-ship"></use></svg></span><h3>Ocean FCL &amp; LCL</h3><p>Full and shared containers from Nhava Sheva, Chennai, Kolkata and Kochi to Jebel Ali, Singapore and Rotterdam.</p><div class="tags"><span class="tag">20′ / 40′</span><span class="tag">LCL consol</span></div><div class="meta"><span>from</span><strong>₹1,999</strong></div></li>
+        <li class="service-card clay lift reveal" data-mode="sea road" style="--rd:.05s"><span class="blob" style="--c1:#ffb547;--c2:#ff7a3d"><svg aria-hidden="true"><use href="#i-layers"></use></svg></span><h3>Project &amp; Heavy Lift</h3><p>Turbines, machinery and oversized cargo with route surveys, escort vehicles and breakbulk vessel charters.</p><div class="tags"><span class="tag">ODC</span><span class="tag">Breakbulk</span></div><div class="meta"><span>from</span><strong>On request</strong></div></li>
+        <li class="service-card clay lift reveal" data-mode="warehouse" style="--rd:.1s"><span class="blob" style="--c1:#a78bfa;--c2:#22d3ee"><svg aria-hidden="true"><use href="#i-warehouse"></use></svg></span><h3>Smart Warehousing</h3><p>2.1M sq ft of fulfilment space with barcode-to-shelf tracking and pick-pack-ship within two hours of an order.</p><div class="tags"><span class="tag">Fulfilment</span><span class="tag">Returns</span></div><div class="meta"><span>from</span><strong>₹18 / sq ft</strong></div></li>
+        <li class="service-card clay lift reveal" data-mode="warehouse road" style="--rd:.15s"><span class="blob" style="--c1:#34d399;--c2:#0ea5e9"><svg aria-hidden="true"><use href="#i-snow"></use></svg></span><h3>Cold Chain</h3><p>Temperature-logged reefers and cold rooms held at 2–8 °C for vaccines, insulin, dairy and fresh produce.</p><div class="tags"><span class="tag">2–8 °C</span><span class="tag">Data loggers</span></div><div class="meta"><span>from</span><strong>₹349</strong></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== TRACKING ===================== -->
+  <section class="section glow" id="track" aria-labelledby="track-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Live tracking</span>
+        <h2 id="track-title">Where is my shipment?</h2>
+        <p class="lead">Enter a Kargonaut tracking ID to see each milestone, the route on the map and your arrival estimate.</p>
+      </div>
+      <div class="glass panel reveal">
+        <form class="track-form" id="trackForm" novalidate>
+          <label for="trackId" class="label" style="font-weight:650">Tracking ID</label>
+          <div class="row">
+            <div class="icon-input"><svg aria-hidden="true"><use href="#i-search"></use></svg><input type="text" class="input mono" id="trackId" name="trackId" placeholder="KGN-00000-XX" autocomplete="off" spellcheck="false" aria-describedby="trackHint trackError"></div>
+            <button class="btn btn-clay" type="submit">Track shipment <svg aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+          </div>
+          <p class="field-error" id="trackError" role="alert"></p>
+        </form>
+        <div class="samples" id="trackHint"><span class="hint">Try a sample:</span>
+          <button class="chip mono sample-id" type="button" data-id="KGN-48213-IN">KGN-48213-IN</button>
+          <button class="chip mono sample-id" type="button" data-id="KGN-77520-AE">KGN-77520-AE</button>
+          <button class="chip mono sample-id" type="button" data-id="KGN-30911-SG">KGN-30911-SG</button>
+          <button class="chip mono sample-id" type="button" data-id="KGN-10458-IN">KGN-10458-IN</button>
+          <button class="chip mono sample-id" type="button" data-id="KGN-66092-NL">KGN-66092-NL</button>
+        </div>
+        <div class="track-result" id="trackResult" hidden aria-live="polite">
+          <dl class="track-summary neu-in">
+            <div><dt>Tracking ID</dt><dd class="mono" id="tId"></dd></div>
+            <div><dt>Route</dt><dd id="tRoute"></dd></div>
+            <div><dt>Mode</dt><dd id="tMode"></dd></div>
+            <div><dt>Weight</dt><dd id="tWeight"></dd></div>
+            <div><dt>Status</dt><dd id="tStatus"></dd></div>
+            <div><dt>ETA</dt><dd id="tEta"></dd></div>
+          </dl>
+          <div class="track-body">
+            <ol class="timeline" id="timeline"></ol>
+            <div>
+              <div class="route-map neu-in">
+                <svg id="routeMap" viewBox="0 0 1000 420" role="img" aria-labelledby="routeMapTitle">
+                  <title id="routeMapTitle">Route map showing shipment progress</title>
+                  <use href="#dotsGlobal" id="routeDotsGlobal" class="map-dots"/>
+                  <use href="#dotsRegion" id="routeDotsRegion" class="map-dots"/>
+                  <use href="#dotsMid" id="routeDotsMid" class="map-dots"/>
+                  <g id="routeLayer"></g>
+                </svg>
+              </div>
+              <p class="hint" id="tProgressText" style="margin:.9rem 0 .5rem"></p>
+              <div class="progress-bar" aria-hidden="true"><span id="tProgress"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== QUOTE ===================== -->
+  <section class="section glow warm" id="quote" aria-labelledby="quote-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Instant quote</span>
+        <h2 id="quote-title">Know the price before you pack.</h2>
+        <p class="lead">Live rates in rupees with every line item shown: volumetric weight, fuel surcharge and GST included.</p>
+      </div>
+      <div class="quote-grid">
+        <div class="glass panel form-grid reveal" id="quoteForm" role="group" aria-labelledby="quote-title" aria-describedby="qNotice">
+          <div class="route-pick">
+            <div class="field"><label for="qFrom">From</label><select class="select" id="qFrom" name="qFrom" data-cities="all"></select></div>
+            <button class="swap-btn" id="qSwap" type="button" aria-label="Swap origin and destination"><svg aria-hidden="true"><use href="#i-swap"></use></svg></button>
+            <div class="field"><label for="qTo">To</label><select class="select" id="qTo" name="qTo" data-cities="all"></select></div>
+          </div>
+          <div class="two">
+            <div class="field">
+              <label for="qWeight">Actual weight (kg)</label>
+              <div class="stepper">
+                <button type="button" data-for="qWeight" data-step="-1" aria-label="Decrease weight by 1 kg">−</button>
+                <input class="input" id="qWeight" name="qWeight" type="number" min="0.1" max="5000" step="0.1" value="10" inputmode="decimal">
+                <button type="button" data-for="qWeight" data-step="1" aria-label="Increase weight by 1 kg">+</button>
+              </div>
+            </div>
+            <fieldset>
+              <legend>Box size (cm)</legend>
+              <div class="three">
+                <label><span class="sr-only">Length in cm</span><input class="input" id="qLen" name="qLen" type="number" min="0" value="30" placeholder="L" inputmode="numeric"></label>
+                <label><span class="sr-only">Width in cm</span><input class="input" id="qWid" name="qWid" type="number" min="0" value="20" placeholder="W" inputmode="numeric"></label>
+                <label><span class="sr-only">Height in cm</span><input class="input" id="qHei" name="qHei" type="number" min="0" value="15" placeholder="H" inputmode="numeric"></label>
+              </div>
+            </fieldset>
+          </div>
+          <fieldset>
+            <legend>Mode</legend>
+            <div class="mode-tiles">
+              <label class="mode-tile"><input type="radio" name="qMode" value="road" checked><span><svg aria-hidden="true"><use href="#i-truck"></use></svg>Road</span></label>
+              <label class="mode-tile"><input type="radio" name="qMode" value="air"><span><svg aria-hidden="true"><use href="#i-plane"></use></svg>Air</span></label>
+              <label class="mode-tile"><input type="radio" name="qMode" value="sea"><span><svg aria-hidden="true"><use href="#i-ship"></use></svg>Sea</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Service level</legend>
+            <div class="segmented">
+              <label><input type="radio" name="qService" value="economy"><span>Economy</span></label>
+              <label><input type="radio" name="qService" value="express" checked><span>Express</span></label>
+              <label><input type="radio" name="qService" value="sameday"><span>Same-day</span></label>
+            </div>
+          </fieldset>
+          <p class="hint">Volumetric weight = L × W × H ÷ 5,000 (road), 6,000 (air) or 1,000 (sea). You pay for whichever is higher.</p>
+        </div>
+        <aside class="quote-out clay reveal" aria-labelledby="quoteOutTitle" style="--rd:.1s">
+          <h3 id="quoteOutTitle">Your estimate</h3>
+          <div id="qNotice" class="notice" role="status" hidden></div>
+          <div class="quote-total"><span class="muted">Total incl. GST</span><output id="qTotal" for="qFrom qTo qWeight" aria-live="polite">—</output></div>
+          <div class="weight-meter">
+            <div id="qActualBox"><small>Actual</small><b id="qActual">—</b></div>
+            <div id="qVolBox"><small>Volumetric</small><b id="qVol">—</b></div>
+            <div><small>Chargeable</small><b id="qChargeable">—</b></div>
+          </div>
+          <dl class="breakdown">
+            <div><dt>Distance</dt><dd id="qDistance">—</dd></div>
+            <div><dt>Base fee</dt><dd id="qBase">—</dd></div>
+            <div><dt>Freight</dt><dd id="qFreight">—</dd></div>
+            <div><dt>Service surcharge</dt><dd id="qService">—</dd></div>
+            <div><dt>Fuel surcharge (12%)</dt><dd id="qFuel">—</dd></div>
+            <div><dt>Subtotal</dt><dd id="qSubtotal">—</dd></div>
+            <div><dt>GST (18%)</dt><dd id="qGst">—</dd></div>
+          </dl>
+          <div class="eta-box"><svg aria-hidden="true"><use href="#i-clock"></use></svg><div><small class="muted">Estimated delivery</small><br><strong id="qEta">—</strong></div></div>
+          <button class="btn btn-hot btn-clay" id="qBook" type="button" style="width:100%">Book this shipment <svg aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BOOKING ===================== -->
+  <section class="section glow" id="book" aria-labelledby="book-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Book a pickup</span>
+        <h2 id="book-title">Four quick steps. Zero paperwork.</h2>
+        <p class="lead">We'll collect from your door and you pay on pickup. Bookings are saved on this device under <em>My shipments</em>.</p>
+      </div>
+      <div class="book-grid">
+        <div class="glass panel reveal">
+          <ol class="steps" id="bookSteps">
+            <li class="active" aria-current="step"><span class="num">1</span>Pickup</li>
+            <li><span class="num">2</span>Delivery</li>
+            <li><span class="num">3</span>Package</li>
+            <li><span class="num">4</span>Review</li>
+          </ol>
+          <p class="sr-only" id="stepStatus" aria-live="polite">Step 1 of 4</p>
+          <form id="bookForm" novalidate>
+            <fieldset class="step-pane form-grid" data-step="1">
+              <legend class="sr-only">Pickup details</legend>
+              <div class="two">
+                <div class="field"><label for="sName">Sender name</label><input type="text" class="input" id="sName" name="sName" autocomplete="name" aria-describedby="err-sName"><p class="field-error" id="err-sName"></p></div>
+                <div class="field"><label for="sPhone">Mobile number</label><input class="input" id="sPhone" name="sPhone" type="tel" autocomplete="tel" placeholder="98765 43210" aria-describedby="err-sPhone"><p class="field-error" id="err-sPhone"></p></div>
+              </div>
+              <div class="field"><label for="sAddress">Pickup address</label><input type="text" class="input" id="sAddress" name="sAddress" autocomplete="address-line1" aria-describedby="err-sAddress"><p class="field-error" id="err-sAddress"></p></div>
+              <div class="two">
+                <div class="field"><label for="sCity">City</label><select class="select" id="sCity" name="sCity" data-cities="domestic" data-placeholder="Choose a city" aria-describedby="err-sCity"></select><p class="field-error" id="err-sCity"></p></div>
+                <div class="field"><label for="sPin">PIN code</label><input type="text" class="input" id="sPin" name="sPin" inputmode="numeric" maxlength="6" autocomplete="postal-code" aria-describedby="err-sPin"><p class="field-error" id="err-sPin"></p></div>
+              </div>
+              <div class="field"><label for="pickupDate">Pickup date</label><input class="input" id="pickupDate" name="pickupDate" type="date" aria-describedby="err-pickupDate pickupHint"><p class="hint" id="pickupHint">Monday to Saturday, 9 AM – 7 PM.</p><p class="field-error" id="err-pickupDate"></p></div>
+            </fieldset>
+            <fieldset class="step-pane form-grid" data-step="2" hidden>
+              <legend class="sr-only">Delivery details</legend>
+              <div class="two">
+                <div class="field"><label for="rName">Receiver name</label><input type="text" class="input" id="rName" name="rName" aria-describedby="err-rName"><p class="field-error" id="err-rName"></p></div>
+                <div class="field"><label for="rPhone">Receiver phone</label><input class="input" id="rPhone" name="rPhone" type="tel" aria-describedby="err-rPhone"><p class="field-error" id="err-rPhone"></p></div>
+              </div>
+              <div class="field"><label for="rAddress">Delivery address</label><input type="text" class="input" id="rAddress" name="rAddress" aria-describedby="err-rAddress"><p class="field-error" id="err-rAddress"></p></div>
+              <div class="two">
+                <div class="field"><label for="rCity">City</label><select class="select" id="rCity" name="rCity" data-cities="all" data-placeholder="Choose a city" aria-describedby="err-rCity"></select><p class="field-error" id="err-rCity"></p></div>
+                <div class="field"><label for="rPin">PIN / postal code</label><input type="text" class="input" id="rPin" name="rPin" aria-describedby="err-rPin"><p class="field-error" id="err-rPin"></p></div>
+              </div>
+            </fieldset>
+            <fieldset class="step-pane form-grid" data-step="3" hidden>
+              <legend class="sr-only">Package details</legend>
+              <div class="two">
+                <div class="field"><label for="pkgType">Package type</label>
+                  <select class="select" id="pkgType" name="pkgType" aria-describedby="err-pkgType"><option value="">Choose a type</option><option>Parcel</option><option>Documents</option><option>Pallet</option><option>Fragile</option><option>Temperature-controlled</option></select>
+                  <p class="field-error" id="err-pkgType"></p></div>
+                <div class="field"><label for="bWeight">Weight (kg)</label><input class="input" id="bWeight" name="bWeight" type="number" min="0.1" step="0.1" inputmode="decimal" aria-describedby="err-bWeight"><p class="field-error" id="err-bWeight"></p></div>
+              </div>
+              <fieldset><legend>Box size (cm)</legend>
+                <div class="three">
+                  <label><span class="sr-only">Length in cm</span><input class="input" id="bLen" name="bLen" type="number" min="0" placeholder="L"></label>
+                  <label><span class="sr-only">Width in cm</span><input class="input" id="bWid" name="bWid" type="number" min="0" placeholder="W"></label>
+                  <label><span class="sr-only">Height in cm</span><input class="input" id="bHei" name="bHei" type="number" min="0" placeholder="H"></label>
+                </div>
+              </fieldset>
+              <fieldset aria-describedby="err-bMode"><legend>Mode</legend>
+                <div class="mode-tiles">
+                  <label class="mode-tile"><input type="radio" name="bMode" value="road" checked><span><svg aria-hidden="true"><use href="#i-truck"></use></svg>Road</span></label>
+                  <label class="mode-tile"><input type="radio" name="bMode" value="air"><span><svg aria-hidden="true"><use href="#i-plane"></use></svg>Air</span></label>
+                  <label class="mode-tile"><input type="radio" name="bMode" value="sea"><span><svg aria-hidden="true"><use href="#i-ship"></use></svg>Sea</span></label>
+                </div>
+              </fieldset>
+              <fieldset><legend>Service level</legend>
+                <div class="segmented">
+                  <label><input type="radio" name="bService" value="economy" checked><span>Economy</span></label>
+                  <label><input type="radio" name="bService" value="express"><span>Express</span></label>
+                  <label><input type="radio" name="bService" value="sameday"><span>Same-day</span></label>
+                </div>
+              </fieldset>
+              <p class="field-error" id="err-bMode" role="alert"></p>
+            </fieldset>
+            <fieldset class="step-pane" data-step="4" hidden>
+              <legend class="sr-only">Review and confirm</legend>
+              <div class="review-list" id="review"></div>
+              <label class="switch-row" style="margin-top:1.2rem"><input type="checkbox" id="agree" name="agree" aria-describedby="err-agree"> I confirm the package has no prohibited or hazardous items.</label>
+              <p class="field-error" id="err-agree"></p>
+            </fieldset>
+            <div class="step-actions">
+              <button class="btn btn-neu" id="bBack" type="button" hidden><svg aria-hidden="true"><use href="#i-left"></use></svg> Back</button>
+              <button class="btn btn-clay" id="bNext" type="submit" style="margin-left:auto">Continue</button>
+            </div>
+          </form>
+          <div class="confirm" id="bookConfirm" hidden tabindex="-1" aria-labelledby="confirmTitle">
+            <div class="tick"><svg aria-hidden="true"><use href="#i-check"></use></svg></div>
+            <h3 id="confirmTitle">Pickup booked!</h3>
+            <p class="muted">Your booking ID</p>
+            <div class="booking-id"><span id="confirmId"></span><button class="round-btn" id="copyId" type="button" aria-label="Copy booking ID" style="width:38px;height:38px"><svg aria-hidden="true"><use href="#i-copy"></use></svg></button></div>
+            <p id="confirmText"></p>
+            <div class="actions">
+              <button class="btn btn-clay" id="trackBooked" type="button">Track this booking</button>
+              <button class="btn btn-neu" id="bookAnother" type="button">Book another</button>
+            </div>
+          </div>
+        </div>
+        <aside class="my-shipments glass reveal" aria-labelledby="mine-title" style="--rd:.1s">
+          <div class="head"><h3 id="mine-title" style="margin:0">My shipments <span class="badge s-out" id="shipCount">0</span></h3><button class="btn btn-neu btn-sm" id="clearShipments" type="button" hidden>Clear all</button></div>
+          <ul class="ship-list" id="shipList" aria-live="polite"></ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NETWORK ===================== -->
+  <section class="section glow warm" id="network" aria-labelledby="network-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Network</span>
+        <h2 id="network-title">Built like a nervous system.</h2>
+        <p class="lead">Gateways, sea ports and spokes that talk to each other every second, so your freight never waits for a phone call.</p>
+      </div>
+      <ul class="stats">
+        <li class="stat clay reveal"><svg aria-hidden="true"><use href="#i-truck"></use></svg><span class="num count" data-target="1240" data-suffix="+">1,240+</span><span class="lbl">Fleet vehicles</span></li>
+        <li class="stat clay reveal" style="--rd:.05s"><svg aria-hidden="true"><use href="#i-warehouse"></use></svg><span class="num count" data-target="38">38</span><span class="lbl">Hubs &amp; ports</span></li>
+        <li class="stat clay reveal" style="--rd:.1s"><svg aria-hidden="true"><use href="#i-box"></use></svg><span class="num count" data-target="2.6" data-decimals="1" data-suffix="M">2.6M</span><span class="lbl">Parcels a month</span></li>
+        <li class="stat clay reveal" style="--rd:.15s"><svg aria-hidden="true"><use href="#i-clock"></use></svg><span class="num count" data-target="98.7" data-decimals="1" data-suffix="%">98.7%</span><span class="lbl">On-time delivery</span></li>
+      </ul>
+      <div class="network-grid">
+        <div class="coverage glass reveal">
+          <div class="segmented" style="max-width:320px;margin-bottom:1rem" role="radiogroup" aria-label="Map view">
+            <label><input type="radio" name="mapView" value="india" checked><span>India</span></label>
+            <label><input type="radio" name="mapView" value="global"><span>Global</span></label>
+          </div>
+          <div class="coverage-map" id="coverageMap">
+            <svg id="coverageSvg" viewBox="666.7 128 122.2 104" role="img" aria-labelledby="covTitle" preserveAspectRatio="xMidYMid meet">
+              <title id="covTitle">Coverage map of Kargonaut hubs and their direct lanes</title>
+              <use href="#dotsRegion" id="covDotsRegion" class="map-dots" stroke-width=".85"/>
+              <use href="#dotsGlobal" id="covDotsGlobal" class="map-dots" stroke-width="2.4"/>
+              <g id="hubLinks-layer" class="hub-links"></g>
+            </svg>
+            <div id="hubButtons"></div>
+          </div>
+          <div class="hub-legend"><span>● Select a hub to see its lanes</span><span>Larger dots = gateways</span></div>
+        </div>
+        <aside class="hub-info clay reveal" id="hubPanel" aria-labelledby="hubName" tabindex="-1" aria-live="polite" style="--rd:.1s">
+          <span class="eyebrow" style="align-self:flex-start">Hub details</span>
+          <h3 id="hubName" style="font-size:1.6rem;margin:0">Mumbai, India</h3>
+          <p class="muted" id="hubType" style="margin:0">Gateway</p>
+          <dl>
+            <div><dt>Floor area</dt><dd id="hubArea">—</dd></div>
+            <div><dt>Parcels / day</dt><dd id="hubDaily">—</dd></div>
+            <div><dt>Direct lanes</dt><dd id="hubLinks">—</dd></div>
+            <div><dt>Uptime</dt><dd>99.95%</dd></div>
+          </dl>
+          <p class="muted" id="hubLinkNames" style="margin:0"></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="section glow" id="stories" aria-labelledby="stories-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Customer stories</span>
+        <h2 id="stories-title">Teams that stopped chasing trucks.</h2>
+      </div>
+      <div class="carousel reveal" id="testimonials">
+        <div class="carousel-viewport">
+          <div class="carousel-track" aria-live="off">
+            <div class="slide">
+              <figure class="quote-card glass" style="margin:0"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg></div>
+                <blockquote><p style="margin:0">“Our festive-season backlog used to take two weeks to clear. With Kargonaut's same-day vans we shipped 40,000 orders in five days, and support answered on WhatsApp at midnight.”</p></blockquote>
+                <figcaption class="who"><span class="avatar" style="--a1:#8b5cf6;--a2:#f472b6">AR</span><span><strong>Ananya Rao</strong><br><span class="muted">Head of Ops, Tealeaf Home (Bengaluru)</span></span></figcaption></figure>
+            </div>
+            <div class="slide">
+              <figure class="quote-card glass" style="margin:0"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg></div>
+                <blockquote><p style="margin:0">“Cold-chain audits are painless now. Every reefer uploads its temperature log, so we hand inspectors a single PDF instead of a box of paper.”</p></blockquote>
+                <figcaption class="who"><span class="avatar" style="--a1:#22d3ee;--a2:#34d399">VK</span><span><strong>Dr. Vikram Kulkarni</strong><br><span class="muted">Supply Chain Lead, Medisphere Labs (Pune)</span></span></figcaption></figure>
+            </div>
+            <div class="slide">
+              <figure class="quote-card glass" style="margin:0"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg></div>
+                <blockquote><p style="margin:0">“We export handloom to Rotterdam twice a month. The quote tool is honest down to the rupee, and the LCL consolidation saved us 31% compared with booking full containers.”</p></blockquote>
+                <figcaption class="who"><span class="avatar" style="--a1:#ff8a4c;--a2:#ffb547">SB</span><span><strong>Sana Begum</strong><br><span class="muted">Founder, Bunkar Weaves (Bhagalpur)</span></span></figcaption></figure>
+            </div>
+            <div class="slide">
+              <figure class="quote-card glass" style="margin:0"><div class="stars" role="img" aria-label="4 out of 5 stars"><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg></div>
+                <blockquote><p style="margin:0">“Spare parts for our plant in Chennai used to be the bottleneck. Next-flight-out from Frankfurt now lands in 36 hours, customs cleared, with the dashboard showing every step.”</p></blockquote>
+                <figcaption class="who"><span class="avatar" style="--a1:#6366f1;--a2:#22d3ee">MJ</span><span><strong>Marcus Jensen</strong><br><span class="muted">Procurement Manager, Nordwind Turbines</span></span></figcaption></figure>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="round-btn" id="carPrev" type="button" aria-label="Previous testimonial"><svg aria-hidden="true"><use href="#i-left"></use></svg></button>
+          <div class="dots"></div>
+          <button class="round-btn" id="carNext" type="button" aria-label="Next testimonial"><svg aria-hidden="true"><use href="#i-right"></use></svg></button>
+          <button class="round-btn" id="carPlay" type="button" aria-label="Pause testimonials"><svg aria-hidden="true"><use href="#i-pause"></use></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRICING ===================== -->
+  <section class="section glow warm" id="pricing" aria-labelledby="pricing-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Business plans</span>
+        <h2 id="pricing-title">Lower rates as you grow.</h2>
+        <p class="lead">Every plan includes live tracking, GST invoices and the customer dashboard.</p>
+      </div>
+      <div class="billing reveal">
+        <span id="billMonthly">Monthly</span>
+        <button class="switch" id="billingToggle" type="button" role="switch" aria-checked="false" aria-label="Bill yearly"><span class="knob"></span></button>
+        <span id="billYearly">Yearly</span><span class="save">2 months free</span>
+      </div>
+      <div class="plans">
+        <article class="plan clay lift reveal">
+          <h3>Starter</h3><p class="muted" style="margin:0">For new D2C brands shipping up to 300 parcels a month.</p>
+          <div class="price"><span class="amt" data-monthly="1499">₹1,499</span><span class="per">/ month</span></div><p class="billed">Billed monthly, cancel anytime</p>
+          <ul><li><svg aria-hidden="true"><use href="#i-check"></use></svg>8% off standard rates</li><li><svg aria-hidden="true"><use href="#i-check"></use></svg>Road and air, all of India</li><li><svg aria-hidden="true"><use href="#i-check"></use></svg>COD remittance in 3 days</li><li><svg aria-hidden="true"><use href="#i-check"></use></svg>Email support</li></ul>
+          <a class="btn btn-neu" href="#contact">Start shipping</a>
+        </article>
+        <article class="plan featured clay lift reveal" style="--rd:.05s">
+          <span class="badge s-out ribbon">Most popular</span>
+          <h3>Growth</h3><p class="muted" style="margin:0">For scaling teams with 300 – 5,000 parcels a month.</p>
+          <div class="price"><span class="amt" data-monthly="4999">₹4,999</span><span class="per">/ month</span></div><p class="billed">Billed monthly, cancel anytime</p>
+          <ul><li><svg aria-hidden="true"><use href="#i-check"></use></svg>18% off standard rates</li><li><svg aria-hidden="true"><use href="#i-check"></use></svg>Same-day metro + ocean LCL</li><li><svg aria-hidden="true"><use href="#i-check"></use></svg>Next-day COD remittance</li><li><svg aria-hidden="true"><use href="#i-check"></use></svg>Dedicated account manager</li></ul>
+          <a class="btn btn-hot btn-clay" href="#contact">Choose Growth</a>
+        </article>
+        <article class="plan clay lift reveal" style="--rd:.1s">
+          <h3>Enterprise</h3><p class="muted" style="margin:0">For manufacturers and exporters moving full loads.</p>
+          <div class="price"><span class="amt" data-monthly="14999">₹14,999</span><span class="per">/ month</span></div><p class="billed">Billed monthly, cancel anytime</p>
+          <ul><li><svg aria-hidden="true"><use href="#i-check"></use></svg>Custom lane contracts</li><li><svg aria-hidden="true"><use href="#i-check"></use></svg>FCL, charters and heavy lift</li><li><svg aria-hidden="true"><use href="#i-check"></use></svg>Customs and warehousing desk</li><li><svg aria-hidden="true"><use href="#i-check"></use></svg>24 × 7 control tower</li></ul>
+          <a class="btn btn-neu" href="#contact">Talk to sales</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CAREERS ===================== -->
+  <section class="section" id="careers" aria-labelledby="careers-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Careers</span>
+        <h2 id="careers-title">Help us move the country.</h2>
+        <p class="lead">We're 1,800 people across 14 cities, from drivers to data scientists. Here's who we're hiring right now.</p>
+      </div>
+      <ul class="perks">
+        <li class="perk glass reveal"><svg aria-hidden="true"><use href="#i-shield"></use></svg><p><strong>Family health cover</strong>₹10 lakh for you, your partner and parents.</p></li>
+        <li class="perk glass reveal" style="--rd:.05s"><svg aria-hidden="true"><use href="#i-leaf"></use></svg><p><strong>Learning budget</strong>₹50,000 a year for courses and certifications.</p></li>
+        <li class="perk glass reveal" style="--rd:.1s"><svg aria-hidden="true"><use href="#i-users"></use></svg><p><strong>Flexible shifts</strong>Hybrid roles and fair rosters for hub teams.</p></li>
+      </ul>
+      <ul class="jobs">
+        <li class="job neu reveal"><div><h3>Fleet Operations Manager</h3><p class="muted" style="margin:0">Run a 140-truck western corridor and its control room.</p><div class="tags"><span class="tag">Operations</span><span class="tag">Mumbai</span><span class="tag">Full-time</span></div></div><span class="muted">5+ yrs</span><button class="btn btn-clay btn-sm" type="button" data-apply="Fleet Operations Manager">Apply</button></li>
+        <li class="job neu reveal"><div><h3>Frontend Engineer</h3><p class="muted" style="margin:0">Build tracking and booking experiences used by 2M people a month.</p><div class="tags"><span class="tag">Engineering</span><span class="tag">Bengaluru / Remote</span><span class="tag">Full-time</span></div></div><span class="muted">2+ yrs</span><button class="btn btn-clay btn-sm" type="button" data-apply="Frontend Engineer">Apply</button></li>
+        <li class="job neu reveal"><div><h3>Customs Compliance Specialist</h3><p class="muted" style="margin:0">Classify goods, file shipping bills and keep exports moving.</p><div class="tags"><span class="tag">Trade</span><span class="tag">Chennai</span><span class="tag">Full-time</span></div></div><span class="muted">3+ yrs</span><button class="btn btn-clay btn-sm" type="button" data-apply="Customs Compliance Specialist">Apply</button></li>
+        <li class="job neu reveal"><div><h3>Data Analyst, Network Planning</h3><p class="muted" style="margin:0">Model lane demand and decide where our next hub goes.</p><div class="tags"><span class="tag">Data</span><span class="tag">Remote</span><span class="tag">Full-time</span></div></div><span class="muted">1+ yrs</span><button class="btn btn-clay btn-sm" type="button" data-apply="Data Analyst, Network Planning">Apply</button></li>
+        <li class="job neu reveal"><div><h3>Warehouse Shift Lead</h3><p class="muted" style="margin:0">Lead a 60-person night shift at our Delhi NCR gateway.</p><div class="tags"><span class="tag">Operations</span><span class="tag">Delhi NCR</span><span class="tag">Shift-based</span></div></div><span class="muted">2+ yrs</span><button class="btn btn-clay btn-sm" type="button" data-apply="Warehouse Shift Lead">Apply</button></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="section glow" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2 id="faq-title">Questions, answered.</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item glass reveal"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-1" id="faq-1-btn">How is the chargeable weight calculated?<svg aria-hidden="true"><use href="#i-down"></use></svg></button></h3><div class="faq-a" id="faq-1" inert><div><p>We compare the actual weight with the volumetric weight (length × width × height in cm divided by 5,000 for road, 6,000 for air or 1,000 for sea) and charge whichever is higher, rounded up to the next half kilogram.</p></div></div></div>
+        <div class="faq-item glass reveal"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-2-btn">Which cities have same-day delivery?<svg aria-hidden="true"><use href="#i-down"></use></svg></button></h3><div class="faq-a" id="faq-2" inert><div><p>Same-day runs inside 14 metro areas and on road lanes of up to 700 km, such as Mumbai to Pune. Domestic air same-day is available between any two airport cities when booked before noon.</p></div></div></div>
+        <div class="faq-item glass reveal"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-3-btn">Do I need to pay online when I book?<svg aria-hidden="true"><use href="#i-down"></use></svg></button></h3><div class="faq-a" id="faq-3" inert><div><p>No. You pay the rider at pickup by UPI, card or cash, and a GST invoice arrives by email. Business plans are billed monthly instead.</p></div></div></div>
+        <div class="faq-item glass reveal"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-4-btn">Can you handle customs for international shipments?<svg aria-hidden="true"><use href="#i-down"></use></svg></button></h3><div class="faq-a" id="faq-4" inert><div><p>Yes. Our in-house brokers file shipping bills and bills of entry, and can prepay duties (DDP) so your receiver pays nothing on arrival.</p></div></div></div>
+        <div class="faq-item glass reveal"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-5-btn">What items can't I ship?<svg aria-hidden="true"><use href="#i-down"></use></svg></button></h3><div class="faq-a" id="faq-5" inert><div><p>Explosives, flammable liquids, live animals, currency and anything illegal at the origin or destination. Lithium batteries and dangerous goods need advance approval from our DG desk.</p></div></div></div>
+        <div class="faq-item glass reveal"><h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-6" id="faq-6-btn">Is my cargo insured?<svg aria-hidden="true"><use href="#i-down"></use></svg></button></h3><div class="faq-a" id="faq-6" inert><div><p>Every shipment carries basic carrier liability. You can add full-value cover at 0.3% of the declared value at checkout, with claims settled within 10 working days.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section glow warm" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Contact</span>
+        <h2 id="contact-title">Let's move something together.</h2>
+        <p class="lead">Sales, support or partnerships: a real human replies within one business day.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="info-card clay reveal"><span class="blob"><svg aria-hidden="true"><use href="#i-pin"></use></svg></span><p><strong>Head office</strong>Unit 14, Skyline Freight Park, Navi Mumbai 400703</p></div>
+          <div class="info-card clay reveal" style="--rd:.05s"><span class="blob"><svg aria-hidden="true"><use href="#i-phone"></use></svg></span><p><strong>24 × 7 control tower</strong>+91 98765 43210</p></div>
+          <div class="info-card clay reveal" style="--rd:.1s"><span class="blob"><svg aria-hidden="true"><use href="#i-mail"></use></svg></span><p><strong>Email</strong>hello@kargonaut.example</p></div>
+        </div>
+        <form class="glass panel form-grid reveal" id="contactForm" novalidate>
+          <div class="two">
+            <div class="field"><label for="cName">Full name</label><input type="text" class="input" id="cName" name="cName" autocomplete="name" aria-describedby="err-cName"><p class="field-error" id="err-cName"></p></div>
+            <div class="field"><label for="cEmail">Work email</label><input class="input" id="cEmail" name="cEmail" type="email" autocomplete="email" aria-describedby="err-cEmail"><p class="field-error" id="err-cEmail"></p></div>
+          </div>
+          <div class="field"><label for="cSubject">Topic</label>
+            <select class="select" id="cSubject" name="cSubject" aria-describedby="err-cSubject"><option value="">Choose a topic</option><option value="sales">Sales &amp; pricing</option><option value="support">Shipment support</option><option value="partner">Partnerships</option><option value="careers">Careers</option></select>
+            <p class="field-error" id="err-cSubject"></p></div>
+          <div class="field"><label for="cMessage">Message</label><textarea class="textarea" id="cMessage" name="cMessage" aria-describedby="err-cMessage"></textarea><p class="field-error" id="err-cMessage"></p></div>
+          <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap">
+            <button class="btn btn-hot btn-clay" type="submit">Send message <svg aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+            <p class="form-status" id="contactStatus" role="status"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-card glass">
+      <div>
+        <a class="brand" href="index.html" aria-label="Kargonaut Logistics, home"><svg aria-hidden="true"><use href="#i-logo"></use></svg><span>Kargo<b>naut</b></span></a>
+        <p class="muted" style="margin-top:1rem">Road, air and ocean freight with one tracking ID, one invoice and zero guesswork. Moving India to the world since 2019.</p>
+      </div>
+      <div>
+        <h2>Ship</h2>
+        <ul>
+          <li><a href="#track">Track a shipment</a></li>
+          <li><a href="#quote">Instant quote</a></li>
+          <li><a href="#book">Book a pickup</a></li>
+          <li><a href="#services">All services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#network">Network</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="dashboard.html">Customer dashboard</a></li>
+          <li><a href="design-system.html">Design system</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Freight notes, weekly</h2>
+        <form class="newsletter" id="newsletterForm" novalidate>
+          <label class="sr-only" for="newsEmail">Email address for the newsletter</label>
+          <input class="input" id="newsEmail" type="email" name="email" placeholder="you@company.com" autocomplete="email" aria-describedby="newsError">
+          <button class="btn btn-clay" type="submit">Subscribe</button>
+        </form>
+        <p class="field-error" id="newsError" aria-live="polite"></p>
+        <p class="hint">Lane rates, fuel trends and product news. No spam.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Rishabh Aryan</p>
+      <p>Kargonaut Logistics is a fictional company. All data on this site is demo data.</p>
+    </div>
+  </div>
+</footer>
+<button class="round-btn to-top" id="toTop" type="button" aria-label="Back to top"><svg aria-hidden="true"><use href="#i-up"></use></svg></button>
+
+<script src="assets/js/maps.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/logic.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

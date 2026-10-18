@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-IN" class="no-js" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer dashboard | Kargonaut Logistics</title>
+  <meta name="description" content="Demo customer dashboard with KPIs, hand-drawn charts and a sortable, searchable shipments table.">
+  <meta name="author" content="Rishabh Aryan">
+  <meta name="theme-color" content="#090c1b">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <script src="assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb547"/><stop offset=".5" stop-color="#ff7a3d"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+  </defs>
+  <symbol id="i-logo" viewBox="0 0 40 40"><rect x="2" y="2" width="36" height="36" rx="12" fill="url(#logoGrad)"/><path d="M11 27V13M11 20l9-7M14.5 17.5L22 27" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 15h6M26 20h5M24 25h4" stroke="#fff" stroke-width="2.6" stroke-linecap="round" opacity=".85"/></symbol>
+  <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6.5h11v9.5H2zM13 9.5h4.2l3.3 3.4V16H13z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="6" cy="17.5" r="1.9" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="17.5" r="1.9" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 15.5l-8-4.6V5a1.5 1.5 0 00-3 0v5.9L2 15.5v2l8-2.3V19l-2.3 1.6V22l3.8-1 3.8 1v-1.4L13 19v-3.8l8 2.3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-ship" viewBox="0 0 24 24"><path d="M3 15.5l1.8 4.5h14.4l1.8-4.5-9-3.2z M6 13.6V8h12v5.6 M9 8V5h6v3 M2 21.5c1.5 0 1.5-.8 3-.8s1.5.8 3 .8 1.5-.8 3-.8 1.5.8 3 .8 1.5-.8 3-.8 1.5.8 3 .8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-warehouse" viewBox="0 0 24 24"><path d="M2.5 9.5L12 4l9.5 5.5V20h-19z M6.5 20v-7h11v7 M6.5 16h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 2.8l8.2 4.4v9.6L12 21.2 3.8 16.8V7.2z M3.8 7.2L12 11.6l8.2-4.4 M12 11.6v9.6 M7.9 5l8.2 4.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2.5L4.5 13.5H11l-1 8 8.5-11H12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.8l7.5 3v5.6c0 4.6-3.1 8.4-7.5 9.8-4.4-1.4-7.5-5.2-7.5-9.8V5.8z M8.5 12l2.4 2.4 4.6-4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5.2l3.4 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s7-6.2 7-12a7 7 0 00-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><path d="M12 1.8v2.6M12 19.6v2.6M1.8 12h2.6M19.6 12h2.6M4.8 4.8l1.8 1.8M17.4 17.4l1.8 1.8M4.8 19.2l1.8-1.8M17.4 6.6l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.6A8.6 8.6 0 019.4 3.5a8.6 8.6 0 1011.1 11.1z" fill="currentColor"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l4.8 4.8L19.5 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path d="M7 4L3 8l4 4M3 8h14M17 12l4 4-4 4M21 16H7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.5l1.8 4.6-2.3 1.4a11 11 0 006.5 6.5l1.4-2.3 4.6 1.8V19a2 2 0 01-2 2A16.5 16.5 0 013 5.5a2 2 0 012-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.8" y="5" width="18.4" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3.5 20.5h17M6.5 17v-5M11 17V7M15.5 17v-7.5M20 17V4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="3.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="3.5" y="13.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="13.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2.8h8l4.5 4.5v13.9H6z M14 2.8v4.5h4.5 M9 12h6.5M9 16h6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4c-9 0-15 4-15 11 0 2 .7 3.6 1.6 5 C8 13.5 12 10.5 16 9c-3.6 2-6.6 5.2-8.4 10.4C9 20.3 10.5 21 12.5 21 18 21 20 15 20 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 20c.6-3.6 3.2-5.6 6.5-5.6s5.9 2 6.5 5.6M16 4.8a3.4 3.4 0 010 6.4M18 14.8c1.9.7 3.2 2.4 3.5 5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2.5v19M3.8 7.2l16.4 9.6M3.8 16.8l16.4-9.6M9.5 4l2.5 2 2.5-2M9.5 20l2.5-2 2.5 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="2.8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M6 9.5v5M18 9.5v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11L12 4l8.5 7M6 9.5V20h12V9.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12.5" height="12.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V5.5A2 2 0 0014 3.5H5.5a2 2 0 00-2 2V14a2 2 0 002 2H8" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 6.5h16M9.5 6.5V4h5v2.5M6.5 6.5l1 14h9l1-14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3.5v12M7 10.5l5 5 5-5M4 20.5h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sort" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z M3 12.5l9 5 9-5 M3 16.5l9 5 9-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  </g>
+</svg>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="mesh" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="grid-bg" aria-hidden="true"></div>
+<header class="site-header">
+  <div class="container">
+    <div class="bar glass">
+      <a class="brand" href="index.html" aria-label="Kargonaut Logistics, home">
+        <svg aria-hidden="true"><use href="#i-logo"></use></svg><span>Kargo<b>naut</b></span>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#track">Track</a></li>
+          <li><a href="index.html#quote">Quote</a></li>
+          <li><a href="index.html#book">Book</a></li>
+          <li><a href="index.html#network">Network</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="index.html#careers">Careers</a></li>
+          <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+          <li><a href="design-system.html">Design system</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="switch" id="themeToggle" type="button" role="switch" aria-checked="true" aria-label="Dark mode">
+          <span class="knob"><svg aria-hidden="true"><use href="#i-moon"></use></svg></span>
+        </button>
+        <a class="btn btn-hot btn-clay btn-sm hide-sm" href="index.html#book">Book pickup</a>
+        <button class="hamburger" id="menuButton" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#6366f1"/></linearGradient>
+    <linearGradient id="barGradHot" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc06a"/><stop offset="1" stop-color="#ff7a3d"/></linearGradient>
+  </defs>
+</svg>
+<main id="main" tabindex="-1">
+  <div class="container dash">
+    <aside class="dash-side glass" aria-label="Dashboard">
+      <div class="user"><span class="avatar" style="--a1:#22d3ee;--a2:#8b5cf6">TH</span><span><strong>Tealeaf Home</strong><br><span class="muted" style="font-size:.85rem">Growth plan · demo</span></span></div>
+      <nav aria-label="Dashboard sections">
+        <ul>
+          <li><a href="#overview" aria-current="page"><svg aria-hidden="true"><use href="#i-grid"></use></svg>Overview</a></li>
+          <li><a href="#analytics"><svg aria-hidden="true"><use href="#i-chart"></use></svg>Analytics</a></li>
+          <li><a href="#shipments"><svg aria-hidden="true"><use href="#i-box"></use></svg>Shipments</a></li>
+          <li><a href="index.html#track"><svg aria-hidden="true"><use href="#i-search"></use></svg>Track</a></li>
+          <li><a href="index.html#book"><svg aria-hidden="true"><use href="#i-truck"></use></svg>Book a pickup</a></li>
+          <li><a href="index.html"><svg aria-hidden="true"><use href="#i-home"></use></svg>Back to site</a></li>
+        </ul>
+      </nav>
+      <div class="neu-in" style="padding:1rem;border-radius:18px">
+        <p style="margin:0 0 .3rem;font-weight:700">Monthly allowance</p>
+        <p class="muted" style="margin:0 0 .6rem;font-size:.88rem">₹38,400 of ₹50,000 used</p>
+        <div class="progress-bar" aria-hidden="true"><span style="width:77%"></span></div>
+      </div>
+    </aside>
+
+    <div class="dash-main">
+      <section id="overview" aria-labelledby="dash-title">
+        <div class="dash-head">
+          <div>
+            <p class="eyebrow" style="margin-bottom:.6rem">Customer dashboard</p>
+            <h1 id="dash-title"><span id="greeting">Hello</span>, Tealeaf Home</h1>
+            <p class="muted" style="margin:.4rem 0 0">Demo account. All numbers are generated on your device.</p>
+          </div>
+          <a class="btn btn-hot btn-clay" href="index.html#book">New pickup <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+        </div>
+        <ul class="kpis" style="margin-top:1.6rem">
+          <li class="kpi clay"><span class="lbl"><svg aria-hidden="true"><use href="#i-box"></use></svg>Shipments (90 days)</span><span class="val" id="kpiTotal">—</span><span class="delta" id="kpiTotalDelta">▲ 12.4% vs last quarter</span><svg class="spark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path id="spark1"/></svg></li>
+          <li class="kpi clay"><span class="lbl"><svg aria-hidden="true"><use href="#i-clock"></use></svg>On-time rate</span>
+            <div style="display:flex;align-items:center;gap:1rem">
+              <div class="gauge gauge-shell" style="width:96px;height:96px"><svg viewBox="0 0 120 120" style="width:84px;height:84px" aria-hidden="true"><circle class="g-track" cx="60" cy="60" r="48"/><circle class="g-val" id="gaugeVal" cx="60" cy="60" r="48" stroke-dasharray="301.6" stroke-dashoffset="301.6"/></svg><span class="g-label" id="kpiOntime" style="font-size:1.05rem">—</span></div>
+              <span class="delta">▲ 1.1 pts</span>
+            </div></li>
+          <li class="kpi clay"><span class="lbl"><svg aria-hidden="true"><use href="#i-truck"></use></svg>Moving right now</span><span class="val" id="kpiTransit">—</span><span class="delta down" id="kpiDelayed">—</span><svg class="spark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path id="spark2"/></svg></li>
+          <li class="kpi clay"><span class="lbl"><svg aria-hidden="true"><use href="#i-cash"></use></svg>Spend (90 days)</span><span class="val" id="kpiSpend">—</span><span class="delta">▼ 6.2% cost per kg</span><svg class="spark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path id="spark3"/></svg></li>
+        </ul>
+      </section>
+
+      <section class="charts" id="analytics" aria-label="Analytics">
+        <div class="chart-card glass">
+          <div class="head">
+            <h2 id="lineTitle">Shipments per week</h2>
+            <div class="segmented" role="radiogroup" aria-label="Chart range" style="min-width:250px">
+              <label><input type="radio" name="range" value="8"><span>8 wk</span></label>
+              <label><input type="radio" name="range" value="12" checked><span>12 wk</span></label>
+              <label><input type="radio" name="range" value="26"><span>26 wk</span></label>
+            </div>
+          </div>
+          <div class="legend"><span><i style="background:#8b5cf6"></i>Booked</span><span><i style="background:#22d3ee"></i>Delivered on time</span></div>
+          <div class="chart-box" id="lineBox">
+            <canvas id="lineChart" role="img" aria-labelledby="lineTitle" aria-describedby="lineSummary">Line chart of weekly shipments.</canvas>
+            <div class="chart-tip glass" id="lineTip" hidden></div>
+          </div>
+          <p class="sr-only" id="lineSummary"></p>
+        </div>
+        <div class="chart-card glass">
+          <div class="head"><h2 id="donutTitle">Shipments by mode</h2></div>
+          <div class="donut-wrap">
+            <svg viewBox="0 0 170 170" role="img" aria-labelledby="donutTitle donutDesc"><desc id="donutDesc">Share of shipments by transport mode</desc><g id="donut" transform="rotate(-90 85 85)"></g><text x="85" y="82" text-anchor="middle" id="donutTotal" style="font-weight:850;font-size:26px;fill:var(--text)">0</text><text x="85" y="104" text-anchor="middle" style="font-size:11px;fill:var(--muted);font-weight:700;letter-spacing:.1em">SHIPMENTS</text></svg>
+            <ul class="donut-list" id="donutList"></ul>
+          </div>
+          <h2 id="barTitle" style="margin-top:1.4rem">Spend by month (₹ thousand)</h2>
+          <svg class="bars-svg" id="bars" viewBox="0 0 420 220" role="img" aria-labelledby="barTitle"></svg>
+        </div>
+      </section>
+
+      <section class="chart-card glass" id="shipments" aria-labelledby="tableTitle">
+        <div class="head">
+          <h2 id="tableTitle">All shipments</h2>
+          <button class="btn btn-neu btn-sm" id="exportCsv" type="button"><svg aria-hidden="true"><use href="#i-download"></use></svg>Export CSV</button>
+        </div>
+        <div class="table-tools">
+          <div class="icon-input"><label class="sr-only" for="tSearch">Search shipments</label><svg aria-hidden="true"><use href="#i-search"></use></svg><input class="input" id="tSearch" type="search" placeholder="Search ID or city…" autocomplete="off"></div>
+          <div class="field"><label for="tStatus" class="sr-only">Filter by status</label>
+            <select class="select" id="tStatus"><option value="">All statuses</option><option>Delivered</option><option>In transit</option><option>Customs</option><option>Out for delivery</option><option>Pending</option><option>Delayed</option></select></div>
+        </div>
+        <div class="table-wrap neu-in">
+          <table class="data" id="shipTable">
+            <caption class="sr-only">Shipments, sortable by column</caption>
+            <thead>
+              <tr>
+                <th scope="col" data-key="id" aria-sort="none"><button type="button">Tracking ID<svg aria-hidden="true"><use href="#i-sort"></use></svg></button></th>
+                <th scope="col" data-key="route" aria-sort="none"><button type="button">Route<svg aria-hidden="true"><use href="#i-sort"></use></svg></button></th>
+                <th scope="col" data-key="mode" aria-sort="none"><button type="button">Mode<svg aria-hidden="true"><use href="#i-sort"></use></svg></button></th>
+                <th scope="col" data-key="status" aria-sort="none"><button type="button">Status<svg aria-hidden="true"><use href="#i-sort"></use></svg></button></th>
+                <th scope="col" data-key="date" aria-sort="descending"><button type="button">Booked<svg aria-hidden="true"><use href="#i-sort"></use></svg></button></th>
+                <th scope="col" data-key="weight" class="num" aria-sort="none"><button type="button">Weight<svg aria-hidden="true"><use href="#i-sort"></use></svg></button></th>
+                <th scope="col" data-key="cost" class="num" aria-sort="none"><button type="button">Cost<svg aria-hidden="true"><use href="#i-sort"></use></svg></button></th>
+              </tr>
+            </thead>
+            <tbody id="tBody"></tbody>
+          </table>
+        </div>
+        <div class="pager">
+          <p class="muted" id="tInfo" aria-live="polite" style="margin:0"></p>
+          <nav class="pages" id="tPages" aria-label="Table pages"></nav>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-card glass">
+      <div>
+        <a class="brand" href="index.html" aria-label="Kargonaut Logistics, home"><svg aria-hidden="true"><use href="#i-logo"></use></svg><span>Kargo<b>naut</b></span></a>
+        <p class="muted" style="margin-top:1rem">Road, air and ocean freight with one tracking ID, one invoice and zero guesswork. Moving India to the world since 2019.</p>
+      </div>
+      <div>
+        <h2>Ship</h2>
+        <ul>
+          <li><a href="index.html#track">Track a shipment</a></li>
+          <li><a href="index.html#quote">Instant quote</a></li>
+          <li><a href="index.html#book">Book a pickup</a></li>
+          <li><a href="index.html#services">All services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="index.html#network">Network</a></li>
+          <li><a href="index.html#careers">Careers</a></li>
+          <li><a href="dashboard.html">Customer dashboard</a></li>
+          <li><a href="design-system.html">Design system</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Freight notes, weekly</h2>
+        <form class="newsletter" id="newsletterForm" novalidate>
+          <label class="sr-only" for="newsEmail">Email address for the newsletter</label>
+          <input class="input" id="newsEmail" type="email" name="email" placeholder="you@company.com" autocomplete="email" aria-describedby="newsError">
+          <button class="btn btn-clay" type="submit">Subscribe</button>
+        </form>
+        <p class="field-error" id="newsError" aria-live="polite"></p>
+        <p class="hint">Lane rates, fuel trends and product news. No spam.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Rishabh Aryan</p>
+      <p>Kargonaut Logistics is a fictional company. All data on this site is demo data.</p>
+    </div>
+  </div>
+</footer>
+<button class="round-btn to-top" id="toTop" type="button" aria-label="Back to top"><svg aria-hidden="true"><use href="#i-up"></use></svg></button>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/logic.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>
