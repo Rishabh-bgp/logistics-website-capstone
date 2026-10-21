@@ -218,3 +218,17 @@ total        = subtotal + round(subtotal × 18% GST)
 ## License
 
 Released under the [MIT License](LICENSE). © 2026 Rishabh Aryan
+
+## 🔗 Related work / Portfolio
+
+Other repositories from my IIT Ropar & NIELIT Ropar AI/ML training:
+
+| Repository | Description | Live |
+|---|---|---|
+| [beed-ml-study](https://github.com/Rishabh-bgp/beed-ml-study) | Provenance audit and leakage-aware benchmark of seizure-type classifiers on the Bangalore EEG Epilepsy Dataset | — |
+| [pan-cancer-classification](https://github.com/Rishabh-bgp/pan-cancer-classification) | Leakage, equivalence and conformal reliability on the UCI TCGA Pan-Cancer RNA-Seq dataset | — |
+| [NIELIT-MACHINE-LEARNING-PROJECTS](https://github.com/Rishabh-bgp/NIELIT-MACHINE-LEARNING-PROJECTS) | Nineteen end-to-end machine learning projects | — |
+| [NIELIT-DATA-SCIENCE](https://github.com/Rishabh-bgp/NIELIT-DATA-SCIENCE) | NumPy, Pandas and Matplotlib notebooks for the NIELIT Data Science curriculum | — |
+| [NIELIT-PYTHON-](https://github.com/Rishabh-bgp/NIELIT-PYTHON-) | Python teaching notebooks and five capstone programs | — |
+| [IIT-ROPAR-GENAI-FOUNDATIONS](https://github.com/Rishabh-bgp/IIT-ROPAR-GENAI-FOUNDATIONS) | Generative AI foundations ebooks from an IIT Ropar AI tools workshop | — |
+| [zoo-website-capstone](https://github.com/Rishabh-bgp/zoo-website-capstone) | Zoo website capstone (simple and advanced versions) | [demo](https://rishabh-bgp.github.io/zoo-website-capstone/) |
